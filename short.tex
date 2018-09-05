@@ -5,28 +5,7 @@
 \usepackage{boxedminipage}
 \input{style.tex}
 
-%\setCJKfamilyfont{caiyun}{STCaiyun}
-%\setCJKfamilyfont{songti}{HYZhongSongS}
-%\setCJKfamilyfont{fangsong}{STFangsong}
-%\setCJKfamilyfont{heiti}{WenQuanYi Zen Hei}
-%\setCJKfamilyfont{kaiti}{AR PL UKai CN}
-%\setCJKfamilyfont{xinwei}{STXinwei}
-%\setCJKfamilyfont{lishu}{LiSu}
-%\setCJKmainfont[BoldFont={WenQuanYi Zen Hei}, ItalicFont={STFangsong}]{WenQuanYi Zen Hei}
-%\setCJKsansfont{WenQuanYi Zen Hei}
-%\setCJKmonofont{AR PL UKai CN}
-%
-%\newcommand*{\song}{\CJKfamily{songti}}   % 宋体
-%\newcommand*{\fs}{\CJKfamily{fangsong}}   % 仿宋
-%\newcommand*{\hei}{\CJKfamily{heiti}}     % 黑体
-%\newcommand*{\kai}{\CJKfamily{kaiti}}     % 楷书
-%\newcommand*{\wei}{\CJKfamily{xinwei}}    % 新魏
-%\newcommand*{\lishu}{\CJKfamily{lishu}}   % 隶书
-%\newcommand*{\cy}{\CJKfamily{caiyun}}     % 彩云
-%
 \lecture[1]{Introduction to \LaTeX}{}
-
-\date{}
 
 \begin{document}
 \begin{frame}
@@ -40,17 +19,17 @@
 \section{What is \LaTeX}
 \begin{frame}{What is \TeX}
 \begin{itemize}
-    \item \TeX{} is a typesetting system (or {\em formatting system}). It 
-    allows anybody to produce high-quality printable documents.
+    \item \TeX{} is a typesetting system (or {\em formatting system}) 
+    that allows you to produce high-quality printable documents.
 
-    \item \TeX{} is written by Donald Knuth, released in 1978,
+    \item \TeX{} was written by Donald Knuth, released in 1978,
     when he wrote his book \alert{The Art of Computer Programming}.
 \end{itemize}
 \begin{center}
     \includegraphics[width=.55\textwidth]{Donald-Knuth.jpg}
 \end{center}
     Donald Knuth(Jan. 10, 1938--): Turing Award(1974),
-    National Acadamy of Sciences(1975) and many other awards and honors.
+    National Academy of Sciences(1975) and many other awards and honors.
 \end{frame}
 
 \begin{frame}{What is \LaTeX}
@@ -58,26 +37,26 @@
     \item \TeX{} system is too primitive. Leslie Lamport developed a document
     preparation system based on \TeX{} (1984).
 
-    \item \LaTeX{} is short for Lamport TeX{}.
+\item \LaTeX{} is short for \alert{La}mport \alert{TeX{}}.
 \end{itemize}
 \begin{center}
     \includegraphics[width=.4\textwidth]{Leslie-Lamport.jpg}
 \end{center}
     Leslie Lamport (Feb. 7, 1941--),
     John von Neumann Medal (2008),
-    Turing Award(2013), ACM Fellow(2014).
+    Turing Award(2013), ACM Fellow(2014), and more.
 \end{frame}
 
-\begin{frame}{Why use \TeX{} and why not}
-\LaTeX{} featues:
+\begin{frame}{Why Use \TeX{} And Why Not}
+\LaTeX{} features:
 \begin{itemize}
-    \item Very good at writing structured documents.
-    \item Typesetting of complex mathematical formulas.
+    \item Making beautiful and professional documents.
     \item Control over large documents containing sectioning,
         cross-references, tables and figures.
-    \item Contents, footnotes, indexes, ..., become very easy.
+    \item Typesetting of complex mathematical formulas.
+    \item Content lists, footnotes, indexes, ..., become very easy.
     \item Using plain text as opposed to the formatted text, 
-        makes the documents readable, small, easy to edit and to compare.
+        makes the documents small, easy to edit and to maintain.
     \item Consistency.
     \item \TeX{} system is free of charge.
 \end{itemize}
@@ -91,12 +70,32 @@
 \end{frame}
 
 \section{Beginners}
-\begin{frame}{\TeX{} source file}
-\lstset{language={[LaTeX]TeX}}
-\lstinputlisting[keywordstyle=\color{red}]{einstein.tex}
+\begin{frame}{\TeX{} Source File}
+\lstinputlisting[language={[LaTeX]TeX},
+    morekeywords={maketitle},keywordstyle=\color{red}]{einstein.tex}
 \end{frame}
 
-\begin{frame}{\TeX{} distributions}
+\begin{frame}{Commands and Environments}
+    \LaTeX{} uses commands to format text.
+\begin{itemize}
+    \item A command starts with backslash and then have a name
+        consisting of letters only.
+    \item Some commands require parameters. Parameters are put in 
+        \{\ \ \} after command. Some commands take optional parameters.
+        Optional parameter is put in [\ \ ].
+       \ \\ \ \\
+
+    \fbox{
+        \textbackslash command[optional parameter]\{parameter\}\{parameter\}
+    }
+\end{itemize}
+
+    Environments are special command using \textbackslash begin\{...\}
+    and \textbackslash end\{...\}
+
+\end{frame}
+
+\begin{frame}{\TeX{} Distributions}
 \begin{table}
 \centering
     \caption{\TeX{} distributions}
@@ -112,53 +111,40 @@
     \TeX{} to produce PDF:
    \\ ~ \\
 
-   \qquad \$ xelatex einstein.tex
+\centering
+    \fbox{ \$ xelatex einstein.tex}
 
 \end{frame}
 
-\begin{frame}{Learning curve}
-    As my experience, here gives a comparision between 
-    \LaTeX{} and Word processors(MS-word, Libre Office, etc.):
+\begin{frame}{Learning Curve}
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{learncurve.pdf}
+\end{center}
+
 \begin{itemize}
     \item 10 minutes of learning ``WORD'', may write a not-so-bad document.
     \item 1 -- 2 hours of learning \LaTeX{} can produce a not-so-bad
         PDF without too complex formulae, figures, and misc., almost
         no publishing mistakes.
-    \item About 10 hours of learning \LaTeX{}, you can produce hundreds
-        of pages of professional document including contents,
-        cross-references, formulae, figures, tables, ...
-    \item Few person can write no publishing mistakes in his thesis.doc.
+    \item About 10 hours of learning \LaTeX{}, you can produce
+        professional document with hundreds
+        of pages, including content list, cross references,
+        formulae, figures, tables, ...
 \end{itemize}
 \end{frame}
 
 \section{Document Structure}
-\begin{frame}{Commands and Environments}
-\begin{itemize}
-    \item A command starts with backslash and then have a name
-        consisting of letters only.
-    \item Some commands require parameters. parameters are put in 
-        \{\ \ \} after command. Some commands take optional parameters.
-        Optional parameter is put in [\ \ ].
-
-
-        \textbackslash command[optional parameter]\{parameter\}\{parameter\}
-\end{itemize}
-
-Environments are special command using \textbackslash begin
-    and \textbackslash end
-
-\end{frame}
-
 \begin{frame}{Text}
-    \TeX{} use following characters:
+    \TeX{} uses following characters:
 \begin{itemize}
-    \item Letters, digits and most ASCII chars are used as normal.
-    \item Multiple white spaces, tabstops are equal to one white space.
+    \item Letters, digits and most ASCII chars are literal.
+    \item Multiple white spaces, tab stops are equal to one white space.
     \item Multiple blank lines are equal to one blank, which produce
         a paragraph separation.
-    \item Some special characters must put a prefix backslash:\\
-        \#, \%, \^, \&, \_, \{, \}, \~{}
-    \item Double backslash is used for line breaking(compare to paragraph).
+    \item Following special characters must be escaped (leading with a backslash):\\
+        \#\ \ \ \%\ \ \ \_ \ \ \ \^{} \ \ \ \& \ \ \ \{ \ \ \ \}\ \ \ \~{}
+    \item Double backslashes are used for line breaking
+        (not paragraph separation, often used in tabular).
         \alert{\textbackslash textbackslash} produce one backslash.
 \end{itemize}
 \end{frame}
@@ -189,7 +175,7 @@ A document is structured using following sectioning:
 \end{itemize}
 
 Sections are automatically numbered. You should not number chapters
-and sections intentionally. Besides, equations, thereoms, figures,
+and sections intentionally. Besides, equations, theorems, figures,
 tables, etc. are also numbered automatically.
 \end{frame}
 
@@ -202,26 +188,26 @@ tables, etc. are also numbered automatically.
 \end{frame}
 
 \begin{frame}[fragile]{Lists}
-    \LaTeX{} use 3 basic lists: itemize, enumerate and description.
+    \LaTeX{} uses 3 basic lists: itemize, enumerate and description.
 
 \begin{verbatim}
-Fibonacci function:
+Fibonacci function $fib(n)$:
 \begin{enumerate}
     \item BEGIN
     \item if $n<2$ then return 1, goto \ref{end}
-    \item calculate fib(n-1) and fib(n-2)
-    \item return fib(n-1)+fib(n-2)
+    \item calculate $fib(n-1)$ and $fib(n-2)$
+    \item return $fib(n-1)+fib(n-2)$
     \item END \label{end}
 \end{enumerate}
 \end{verbatim}
 
 \begin{boxedminipage}{0.8\textwidth}
-Fibonacci function:
+    Fibonacci function $fib(n)$:
 \begin{enumerate}
     \item BEGIN
     \item if $n<2$ then return 1, goto \ref{end}
-    \item calculate fib(n-1) and fib(n-2)
-    \item return fib(n-1)+fib(n-2)
+    \item calculate $fib(n-1)$ and $fib(n-2)$
+    \item return $fib(n-1)+fib(n-2)$
     \item END \label{end}
 \end{enumerate}
     \end{boxedminipage}
@@ -229,11 +215,11 @@ Fibonacci function:
 
 \section{Math Notation}
 \begin{frame}{Math Mode}
-    Inline and standalone math notatons look different. Math symbols
+    Inline and stand-alone math notations look different. Math symbols
     use different font from text.
 \begin{itemize}
-    \item Inline math mode between \$ and \$: $n!=\prod_{i=0}^n i$
-    \item Standalone math mode between \$\$ and \$\$, or in
+    \item Inline math mode between \$ and \$: $n!=\prod_{i=1}^n i$
+    \item Stand-alone math mode between \$\$ and \$\$, or in
         \alert{equation} environment. Equation environment will
         automatically numbered.
 
@@ -241,10 +227,13 @@ Fibonacci function:
             \sum_{i=0}^n i = \frac{n (n-1)}{2}
         \end{equation}
         \begin{equation}
-            X(\omega) = \int_{-\infty}^{+\infty}
+            X(\omega) =\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}
                 x(t) e^{-j\omega t}\mathrm{d} t
         \end{equation}
     \item Greek letters: \textbackslash alpha, \textbackslash beta ,...
+    \item Math symbols: \textbackslash int, \textbackslash sum,
+        \textbackslash \textbackslash frac\{\}, \textbackslash lim,
+        \textbackslash limits, \textbackslash nolimts,..., and more.
 
 \end{itemize}
 \end{frame}
@@ -255,7 +244,8 @@ Fibonacci function:
 in mathematical documents.
 \ \\ \ \\
 
-\qquad \textbackslash newtheorem\{name\}[counter]\{text\}[section]
+    \fbox{
+        \textbackslash newtheorem\{name\}[counter]\{text\}[section]}
 \ \\ \ \\
 
 \alert{name} is a new environment name. \alert{text} is the text
@@ -280,7 +270,7 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \end{figure}
 \end{verbatim}
 
-    \LaTeX{} support both vector graphics(PDF, EPS) and raster grahpics
+    \LaTeX{} supports both vector graphics(PDF, EPS) and raster graphics
     (JPG, PNG, BMP, etc.).
 
 \end{frame}
@@ -304,10 +294,9 @@ the sectional unit within which the {\em theorem} should get its numbers.
 
 \section{Packages}
 \begin{frame}
-    \TeX{} distributions come with a large number of packages prein-
-    stalled.
+    \TeX{} distributions come with a large number of pre-installed packages.
 \begin{description}
-    \item [geometry] Customizing page layout, including papersize,
+    \item [geometry] Customizing page layout, including paper size,
         margins, etc.
     \item [fancyhdr] Customizing header and footer.
     \item [listings] Printing source codes with syntax highlight.
@@ -333,13 +322,8 @@ the sectional unit within which the {\em theorem} should get its numbers.
     \item \textbackslash bibitem in bibliography is cited using
         \textbackslash cite\{\ \ \}.
 \end{itemize}
-Build bibtex needs 4 steps:
-\begin{enumerate}
-    \item xelatex foo.tex $\to$ foo.aux, foo.bib
-    \item bibtex foo.aux  $\to$ foo.bbl
-    \item xelatex foo.tex, insert labels
-    \item xelatex foo.tex, correct order
-\end{enumerate}
+A bibtex database management software is suggested.
+(jabref, xapers, etc)
 \end{frame}
 
 \begin{frame}{Bibliography}
