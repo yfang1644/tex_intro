@@ -122,7 +122,7 @@
 \end{center}
 
 \begin{itemize}
-    \item 10 minutes of learning ``WORD'', may write a not-so-bad document.
+    \item 10 minutes of learning ``WORD'' may write a not-so-bad document.
     \item 1 -- 2 hours of learning \LaTeX{} can produce a not-so-bad
         PDF without too complex formulae, figures, and misc., almost
         no publishing mistakes.
@@ -154,7 +154,7 @@
     \item A group of text between blank lines forms a paragraph.
     \item In English documents, the first paragraph of each section
         is not indented by default.
-    \item words which put in a box are not broken by newline. ie.
+    \item Words which put in a box are not broken by newline. ie.
         \textbackslash mbox\{World-War-III\}.
     \item Command \alert{\textbackslash newline} or
         \alert{\textbackslash newpage} will change the form of a paragraph.
@@ -221,10 +221,10 @@ Fibonacci function $fib(n)$:
     \item Inline math mode between \$ and \$: $n!=\prod_{i=1}^n i$
     \item Stand-alone math mode between \$\$ and \$\$, or in
         \alert{equation} environment. Equation environment will
-        automatically numbered.
+		automatically numbered.  \ref{equ:xxx}
 
-        \begin{equation}
-            \sum_{i=0}^n i = \frac{n (n-1)}{2}
+		\begin{equation}\label{equ:xxx}
+            \sum_{i=0}^n i = \frac{n (n-1)}{2} \nonumber
         \end{equation}
         \begin{equation}
             X(\omega) =\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty}
@@ -232,7 +232,7 @@ Fibonacci function $fib(n)$:
         \end{equation}
     \item Greek letters: \textbackslash alpha, \textbackslash beta ,...
     \item Math symbols: \textbackslash int, \textbackslash sum,
-        \textbackslash \textbackslash frac\{\}, \textbackslash lim,
+        \textbackslash frac\{\}, \textbackslash lim,
         \textbackslash limits, \textbackslash nolimts,..., and more.
 
 \end{itemize}
@@ -293,15 +293,15 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \end{frame}
 
 \section{Packages}
-\begin{frame}
+\begin{frame}{Packages}
     \TeX{} distributions come with a large number of pre-installed packages.
 \begin{description}
     \item [geometry] Customizing page layout, including paper size,
         margins, etc.
     \item [fancyhdr] Customizing header and footer.
-    \item [listings] Printing source codes with syntax highlight.
+    \item [listings] Printing source codes with syntax highlights.
     \item [hyperref] Creating hyperlink.
-    \item [makeidx] Make index.
+    \item [makeidx] Making index.
     \item [longtable] (guess what)
     \item [ctex] CJK (Chinese, Japanese and Korean) language support
     \item [...]
