@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[paperwidth=15cm, paperheight=24cm,
+    margin=0pt, top=12mm, bottom=1.5ex,
+    left=2pt,right=2pt]{geometry}
+
+\usepackage[a4,frame,center]{crop}
+\usepackage[fontset=none]{ctex}        % 中文包
+\usepackage{ltxtable}
+\usepackage[explicit]{titlesec}
+\usepackage[dotinlabels]{titletoc}
+
+\usepackage{lipsum}     % 生成随机文字，用于填充模板内容
+
+% 设置中文字体
+\setCJKmainfont[BoldFont={WenQuanYi Micro Hei},
+                ItalicFont={STFangsong}]{NSimSun}
+
+% 调整 list 间距
+\renewenvironment{itemize}{%
+\begin{list}  {\labelitemi}{%
+    \settowidth{\labelwidth}{\labelitemi}%
+    \setlength{\leftmargin}{\labelwidth}%
+    \addtolength{\leftmargin}{\labelsep}%
+    \itemsep=-2pt }%
+}{\end{list}}
+
+\let\oldenum\enumerate
+\let\oldendenum\endenumerate
+\renewenvironment{enumerate}
+{\oldenum\setlength{\parskip}{\smallskipamount} \itemsep=-2pt}
+{\oldendenum}
+   
+\titleformat{name=\section}%
+{\ifnum\thesection>1 %
+    \titlerule \vspace{1pc}%
+  \fi %
+\large\bfseries }{}{0.5em}{#1}
+
+\newcommand*\markC{%
+\begin{picture}(0,0)
+    \linethickness{1.3pt}\unitlength 1cm
+    \put(0,0){\framebox(15,22.78)[c]{}}
+\end{picture}}
+
+\newcommand*\markinfo{\bf\Large 天空地一体智能信息网络研究所研究生工作周报}
+\cropdef[\markinfo]\relax\relax\markC\relax{istin}
+\crop[istin]
+\begin{document}
+
+\def\name{张三丰}
+\def\studentid{123456789}
+\def\mentor{觉远}
+\def\leader{太极}
+\def\direction{武当派}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabularx}{\textwidth}{c|c|c|c|c|X} 
+    姓~~~~名 & \name & 学~~~~号 & \studentid & 导~~~~师  & \mentor \\\hline
+    研究方向 & \multicolumn{3}{l|}{\direction} & 课题组负责人 &
+        \leader \\\hline
+    项目任务 & \multicolumn{5}{l}{打酱油} \\\hline
+    填表时间 & \multicolumn{5}{l}{\today}\\\hline
+\end{tabularx}
+\end{center}
+
+\section{任务目标（通常是上周计划）}
+\begin{enumerate}
+    \item UDP 传输测试
+    \item CFDP 传输测试
+    \item ....
+\end{enumerate}
+
+\section{工作内容（如果有重要进展,此栏目要在表格后面适当展开）}
+\lipsum[2-3]
+
+\section{存在问题及解决办法}
+\lipsum[9]
+\begin{enumerate}
+    \item 没有问题
+    \item 有问题
+\end{enumerate}
+
+\section{下周计划}
+\begin{enumerate}
+    \item 空间包协议程序设计和编写
+    \item 阅读 SDN 定义卫星网络相关文献
+\end{enumerate}
+
+\lipsum[7]  
+
+\begin{thebibliography}{9}
+\bibitem{python}
+    \newblock{Mark Lutz},
+    \newblock{\em Learning Python, Fourth Edition},
+    \newblock{O'Reilly Media, Inc., 2009}
+\end{thebibliography}
+
+\vfill
+\section{指导教师意见}
+
+\vskip 2cm
+\end{document}

@@ -1,0 +1,114 @@
+%%============================================================================
+%%
+%%       Filename:  table1.tex
+%%
+%%    Description:  thesis review
+%%
+%%        Version:  1.0
+%%        Created:  09/08/2018 09:23:46 PM
+%%       Revision:  none
+%%
+%%         Author:  Fang Yuan (yfang@nju.edu.cn)
+%%   Organization:  nju
+%%      Copyright:  Copyright (c) 2018, Fang Yuan
+%%
+%%          Notes:  
+%%                
+%%============================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage[fontset=none]{ctex}
+\usepackage[paperwidth=15cm, paperheight=23.5cm,
+            margin=0pt, top=3.5cm, bottom=1.5ex,
+            left=2pt,right=2pt]{geometry}
+\usepackage[a4,frame,center]{crop}
+\usepackage{ltxtable}
+
+\setCJKfamilyfont{caiyun}{STCaiyun}
+\setCJKfamilyfont{songti}{HYZhongSongS}
+\setCJKfamilyfont{kaiti}{AR PL UKai CN}
+\setCJKfamilyfont{fangsong}{STFangsong}
+\setCJKfamilyfont{heiti}{WenQuanYi Micro Hei}
+\setCJKfamilyfont{xinwei}{STXinwei}
+\setCJKfamilyfont{lishu}{LiSu}
+\setCJKmainfont{SimSun}
+%\setCJKmainfont[BoldFont={WenQuanYi Micro Hei}, ItalicFont={STFangsong}]{SimSun}
+\setCJKsansfont{WenQuanYi Micro Hei}
+\setCJKmonofont{AR PL UKai CN}
+
+%\setmainfont{Times New Roman}
+\setsansfont{Droid Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\newcommand*{\songti}{\CJKfamily{songti}}   % 宋体
+\newcommand*{\kaishu}{\CJKfamily{kaiti}}     % 楷书
+\newcommand*{\fs}{\CJKfamily{fangsong}}   % 仿宋
+\newcommand*{\heiti}{\CJKfamily{heiti}}     % 黑体
+\newcommand*{\wei}{\CJKfamily{xinwei}}    % 新魏
+\newcommand*{\lishu}{\CJKfamily{lishu}}   % 隶书
+\newcommand*{\cy}{\CJKfamily{caiyun}}     % 彩云
+
+
+\newcommand*\markC{%
+\begin{picture}(0,0)
+    \linethickness{1.3pt}\unitlength 1cm
+    \put(0,0){\framebox(15,20)[c]{}}
+\end{picture}}
+        
+\newcommand*\markinfo{
+    \shortstack{
+    {\renewcommand{\CJKglue}{\hskip 1em} \bf \Large 南京大学\vspace{5mm}}
+        \\
+    {\renewcommand{\CJKglue}{\hskip .4em}
+       \bf \Large 研究生学位申请书 · 附表一\vspace{5mm}}
+        \\
+    \fontsize{16}{16}\selectfont
+    \fs \large 指导教师对研究生学位(毕业)论文评语
+    }
+}
+\cropdef[\markinfo]\relax\relax\markC\relax{istin}
+\crop[istin]
+
+\begin{document}
+\pagestyle{empty}
+\fontsize{12}{16}\selectfont
+\begin{center}
+\begin{tabularx}{\textwidth}{c|c|c|c|c|X|X}
+研究生姓名 & \multicolumn{2}{c|}{佚名} & 入学时间 & 2013.03 & 攻读学位
+        & 工程硕士\\\hline
+所~学~专~业   & \multicolumn{2}{c|}{电子与通信工程}
+        & 研究方向 & \multicolumn{3}{l}{空气管道}\\\hline
+论~文~题~目 & \multicolumn{6}{l}{地月距离测量与算法}\\\hline
+\end{tabularx}
+
+\fontsize{12}{14}\selectfont
+\vskip 8mm
+\Large \kaishu 导师评语\end{center}
+
+\fontsize{12}{12}\selectfont
+
+在生活水平提高的同时，医疗、健康也越来越得到人们的关注。在这个背景下，
+医疗一体机具有广阔的市场前景。论文作者在这一产品的生产过程中发现了
+影响产品质量的一些关键性因素，并对此展开了研究，具有明确的研究背景和
+实用价值。
+
+论文详细分析了产品生产的现状，从``持续改善''的理念出发，探讨了改进生产
+工艺和流程的一些措施，改进了测试软件，将原有的手工操作过程转向半自动化
+过程，初步实现了降低成本、提高效率，使企业在激烈的市场竞争中保持优势。
+其研究成果得到了企业的肯定。
+    
+论文选题符合专业培养目标，能够达到综合训练目标，时效性较强。作者在
+选题和论文撰写过程中，查阅了大量相关文献，结合工作经验，灵活运用已学
+知识解决课题中遇到的问题。论文表现出作者具有扎实的理论基础，具备独立
+从事科学研究的能力，工作细致踏实，具有团结协作精神。
+
+本人认为论文达到硕士学位论文水平，同意该生进行硕士研究生论文答辩和
+硕士学位申请。
+
+\vfill
+\hfill {\heiti 指导教师}\underline{\hskip 35mm} (签章)\qquad\qquad
+\vskip 1cm
+\hfill 年\hskip 12mm 月\hskip 12mm 日\qquad\qquad
+
+(可加附页)
+
+\end{document}
