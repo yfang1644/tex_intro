@@ -2,7 +2,7 @@
 
 \usepackage[paperwidth=15cm, paperheight=24cm,
     margin=0pt, top=12mm, bottom=1.5ex,
-    left=2pt,right=2pt]{geometry}
+    left=0pt,right=0pt]{geometry}
 
 \usepackage[a4,frame,center]{crop}
 \usepackage[fontset=none]{ctex}        % 中文包
@@ -46,6 +46,10 @@
 \newcommand*\markinfo{\bf\Large 天空地一体智能信息网络研究所研究生工作周报}
 \cropdef[\markinfo]\relax\relax\markC\relax{istin}
 \crop[istin]
+
+\addtolength{\leftskip}{1em}
+\addtolength{\rightskip}{1em}
+
 \begin{document}
 
 \def\name{张三丰}
