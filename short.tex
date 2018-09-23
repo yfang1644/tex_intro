@@ -47,6 +47,29 @@
     Turing Award(2013), ACM Fellow(2014), and more.
 \end{frame}
 
+\begin{frame}[t]{How a Book is Published}
+Imagine an author is publishing a book:
+\begin{itemize}
+    \item He gives his manuscript to a publishing company.
+    \item A book desinger, or an editor (of the company) chooses
+        the document layout, page size, fonts, headings, ...,etc.
+        He marks his instructions into the manuscript, then gives
+        it to the typesetters.
+
+        The editor needs knowledges both the author and the publishing.
+    \item The typesetters typeset the book according to these instructions.
+\end{itemize}
+
+When you use WYSIWYG(What you see is what you get), you pretend you are
+    three of them.\\[10pt]
+
+When you use \TeX, you are just an author, \LaTeX is the editor,
+\TeX is typesetters(you don't need to know them in most cases).
+
+But \LaTeX is only a programm. You must give guidance, ie. Programming.
+\end{frame}
+
+
 \begin{frame}{Why Use \TeX{} And Why Not}
 \LaTeX{} features:
 \begin{itemize}
@@ -75,15 +98,14 @@
     morekeywords={maketitle},keywordstyle=\color{red}]{einstein.tex}
 \end{frame}
 
-\begin{frame}{Commands and Environments}
+\begin{frame}[t]{Commands and Environments}
     \LaTeX{} uses commands to format text.
 \begin{itemize}
     \item A command starts with backslash and then have a name
         consisting of letters only.
     \item Some commands require parameters. Parameters are put in 
         \{\ \ \} after command. Some commands take optional parameters.
-        Optional parameter is put in [\ \ ].
-       \ \\ \ \\
+        Optional parameter is put in [\ \ ].\\[2ex]
 
     \fbox{
         \textbackslash command[optional parameter]\{parameter\}\{parameter\}
@@ -95,7 +117,7 @@
 
 \end{frame}
 
-\begin{frame}{\TeX{} Distributions}
+\begin{frame}[t]{\TeX{} Distributions}
 \begin{table}
 \centering
     \caption{\TeX{} distributions}
@@ -107,13 +129,17 @@
     \end{tabular}
 \end{table}
 
-    We write \TeX{} document using text editor, and xelatex to compile
-    \TeX{} to produce PDF:
-   \\ ~ \\
+    We write \TeX{} document using text editor, and \alert{xelatex} to compile
+    \TeX{} to produce PDF:\\[2ex]
 
-\centering
+\begin{center}
     \fbox{ \$ xelatex einstein.tex}
+\end{center}
 
+In IDE, this command is executed by clicking the compiling-icon.
+
+Sometime, you need \alert{xelatex} twice or more to produce correct
+cross-references.
 \end{frame}
 
 \begin{frame}{Learning Curve}
@@ -134,55 +160,72 @@
 \end{frame}
 
 \section{Document Structure}
-\begin{frame}{Text}
-    \TeX{} uses following characters:
+\begin{frame}[t]{Text}
+    \TeX{} simple rules:
 \begin{itemize}
-    \item Letters, digits and most ASCII chars are literal.
+    \item Input letters, digits and most ASCII chars as text, exept only
+        a few special symbols, which must be escaped
+        (\alert{\textbackslash}).
     \item Multiple white spaces, tab stops are equal to one white space.
     \item Multiple blank lines are equal to one blank, which produce
         a paragraph separation.
-    \item Following special characters must be escaped (leading with a backslash):\\
-        \#\ \ \ \%\ \ \ \_ \ \ \ \^{} \ \ \ \& \ \ \ \{ \ \ \ \}\ \ \ \~{}
-    \item Double backslashes are used for line breaking
-        (not paragraph separation, often used in tabular).
-        \alert{\textbackslash textbackslash} produce one backslash.
 \end{itemize}
+
+DO NOT focus too much on {\em how the document looks like}.
+It is the publisher's job.
+
 \end{frame}
 
-\begin{frame}{Sentence and Paragraph}
+\begin{frame}[t]{Sentence and Paragraph}
 \begin{itemize}
     \item A group of text between blank lines forms a paragraph.
-    \item In English documents, the first paragraph of each section
-        is not indented by default.
+        A paragraph is the typographical form that should reflect
+        one \alert{coherent} thought, or one idea.
     \item Words which put in a box are not broken by newline. ie.
         \textbackslash mbox\{World-War-III\}.
     \item Command \alert{\textbackslash newline} or
-        \alert{\textbackslash newpage} will change the form of a paragraph.
+        \alert{\textbackslash newpage} will change the form of
+        a paragraph intentionally.
+    \item Paragraphs should be structured logically at a higher level
+        (\alert{subsection}, \alert{section}, \alert{chapter}, etc).
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Document Structure}
+\begin{frame}[t]{Document Structure}
 Paragraphs are organized into sections.
-A document is structured using following sectioning:
-\begin{itemize}
-    \item \textbackslash part\{...\}
-    \item \textbackslash chapter\{...\} (\alert{not used in article class})
-    \item \textbackslash section\{...\}
-    \item \textbackslash subsection\{...\}
-    \item \textbackslash subsubsection\{...\}
-    \item \textbackslash paragraph\{...\}
-    \item \textbackslash subparagraph\{...\}
-\end{itemize}
+A document is structured using following levels:
+\begin{description}
+    \item[-1] \textbackslash part\{...\}
+    \item[0] \textbackslash chapter\{...\} (\alert{not used in article class})
+    \item[1] \textbackslash section\{...\}
+    \item[2] \textbackslash subsection\{...\}
+    \item[3] \textbackslash subsubsection\{...\}
+    \item[4] \textbackslash paragraph\{...\}
+    \item[5] \textbackslash subparagraph\{...\}
+\end{description}
 
 Sections are automatically numbered. You should not number chapters
 and sections intentionally. Besides, equations, theorems, figures,
 tables, etc. are also numbered automatically.
+
+\textbackslash setcounter{tocdepth}{2} will list sections in content
+    until level 2.
 \end{frame}
 
-\begin{frame}{Big Projects}
+\begin{frame}[t]{Big Projects}
     Big document can be split into several parts. \LaTeX{} uses
     command \alert{\textbackslash include} or \alert{\textbackslash input}
-    to insert the contents of a file.
+    to insert the contents of a file.\\[3ex]
+
+\textbackslash title\{Civilizations\}
+
+\textbackslash input Babylonian.tex \qquad \% Chapter 1
+
+\textbackslash input Egypt.tex \qquad\qquad \% Chapter 2
+
+\textbackslash input India.tex \qquad\qquad \% Chapter 3
+
+\textbackslash input China.tex \qquad\qquad \% Chapter 4
 
 
 \end{frame}
@@ -221,7 +264,7 @@ Fibonacci function $fib(n)$:
     \item Inline math mode between \$ and \$: $n!=\prod_{i=1}^n i$
     \item Stand-alone math mode between \$\$ and \$\$, or in
         \alert{equation} environment. Equation environment will
-		automatically numbered.  \ref{equ:xxx}
+		automatically numbered.
 
 		\begin{equation}\label{equ:xxx}
             \sum_{i=0}^n i = \frac{n (n-1)}{2} \nonumber
@@ -238,15 +281,14 @@ Fibonacci function $fib(n)$:
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Newtheorem}
+\begin{frame}[t]{Newtheorem}
 
 {\em Lemmas, Definitions, Axioms} and similar structures are often used
-in mathematical documents.
-\ \\ \ \\
+    in mathematical documents.\\[3ex]
 
     \fbox{
         \textbackslash newtheorem\{name\}[counter]\{text\}[section]}
-\ \\ \ \\
+    \\[3ex]
 
 \alert{name} is a new environment name. \alert{text} is the text
 printed in the document as a label. \alert{counter} specifies the 
@@ -266,8 +308,9 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \begin{figure}
 \centering
   \includegraphics[width=0.5\textwidth]{Knuth.jpg}
-  \caption{Doland Knuth(1938--)}\label{knuth}
+  \caption{Doland Knuth(1938--)}\label{pic:knuth}
 \end{figure}
+Fig.\ref{pic:knuth} is a photo of Doland Knuth.
 \end{verbatim}
 
     \LaTeX{} supports both vector graphics(PDF, EPS) and raster graphics
@@ -293,7 +336,7 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \end{frame}
 
 \section{Packages}
-\begin{frame}{Packages}
+\begin{frame}[t]{Packages}
     \TeX{} distributions come with a large number of pre-installed packages.
 \begin{description}
     \item [geometry] Customizing page layout, including paper size,
@@ -309,7 +352,7 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \end{frame}
 
 \section{Cross References}
-\begin{frame}{Cross References}
+\begin{frame}[t]{Cross References}
     Almost all tags (using \textbackslash label\{...\})
     can be referenced: figure, table, equation,
     chapter and section, page, etc.
@@ -336,4 +379,42 @@ A bibtex database management software is suggested.
     \bibliographystyle{unsrt}
     \bibliography{bookref}
 \end{frame}
+
+\begin{frame}[t]{Where to Find References}
+\begin{itemize}
+    \item When you are in NJU campus, you may feel happy that you have
+    free access to many cyber-libraries via:
+
+    \url{http://lib.nju.edu.cn} \\[2ex]
+    \item Reading references is the (almost) first thing before
+        you begin an academic research.
+    \item After reading, you need to submit a report (literature review)
+        to convince the sponsor that this research is neccessary/possible.
+\end{itemize}
+Literature review may become the first part of your thesis(dissertation),
+or a stand-alone report.
+\end{frame}
+
+\begin{frame}[t]{Literature Review}
+A typical writting process follows these steps:
+\begin{enumerate}
+    \item Define topic (what are you looking to explore?)
+    \item Specify questions to guide your research (what, how,...).
+    \item Find relevant (first hand) sources as many as possible, positive
+        and negative, take notes of their points, conclusions,
+        strenths and weakness.
+    \item Analyze and evaluate sources .
+    \item A literature review should include at least introduction,
+        body and conclusion.
+\end{enumerate}
+Some typical ways of organizing the sources into a review:
+\begin{itemize}
+    \item Chronological
+    \item By trend
+    \item Thematic
+    \item Methodological
+\end{itemize}
+
+\end{frame}
+
 \end{document}
