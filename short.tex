@@ -6,7 +6,8 @@
 \usepackage{boxedminipage}
 \input{style.tex}
 
-\lecture[1]{Introduction to \LaTeX}{}
+\lecture[1]{A short introduction to \LaTeX\\[5ex]
+  $\tau \epsilon \chi$ (technology $\to$ TeX)}{}
 
 \begin{document}
 \begin{frame}
@@ -54,7 +55,7 @@
 Imagine an author is publishing a book:
 \begin{itemize}
     \item He gives his manuscript to a publishing company.
-    \item A book desinger, or an editor (of the company) chooses
+    \item A book designer, or an editor (of the company) chooses
         the document layout, page size, fonts, headings, ...,etc.
         He marks his instructions into the manuscript, then gives
         it to the typesetters.
@@ -69,7 +70,7 @@ Imagine an author is publishing a book:
     When you use \TeX{}, you are just an author (you know little
     about publishing), \LaTeX{} is the editor, \TeX{} is typesetters
 
-    But \LaTeX{} is only a programm. You must give guidance, i.e.
+    But \LaTeX{} is only a program. You must give guidance, i.e.
     programming.
 \end{frame}
 
@@ -166,7 +167,7 @@ cross-references.
 \begin{frame}[t]{Text}
     \TeX{} simple rules:
 \begin{itemize}
-    \item Input letters, digits and most ASCII chars as text, exept only
+    \item Input letters, digits and most ASCII chars as text, except only
         a few special symbols, which must be escaped
         (\alert{\textbackslash}).
     \item Multiple white spaces, tab stops are equal to one white space.
@@ -184,7 +185,7 @@ cross-references.
     \item A group of text between blank lines forms a paragraph.
         A paragraph is the typographical form that should reflect
         one \alert{coherent} thought, or one idea.
-    \item Words which put in a box are not broken by newline. ie.
+    \item Words which put in a box are not broken by newline, i.e.
         \textbackslash mbox\{World-War-III\}.
     \item Command \alert{\textbackslash newline} or
         \alert{\textbackslash newpage} will change the form of
@@ -397,8 +398,13 @@ Fig.\ref{pic:knuth} is a photo of Doland Knuth.
     \item \textbackslash bibitem in bibliography is cited using
         \textbackslash cite\{\ \ \}.
 \end{itemize}
-A bibtex database management software is suggested.
-(jabref, xapers, etc)
+A bibtex database management software is suggested:
+\begin{itemize}
+    \item Endnote
+    \item citavi
+    \item zotero
+    \item jabref/Docear
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Bibliography}
@@ -420,20 +426,20 @@ A bibtex database management software is suggested.
     \item Reading references is the (almost) first thing before
         you begin an academic research.
     \item After reading, you need to submit a report (literature review)
-        to convince the sponsor that this research is neccessary/possible.
+        to convince the sponsor that this research is necessary/possible.
 \end{itemize}
 Literature review may become the first part of your thesis(dissertation),
 or a stand-alone report.
 \end{frame}
 
 \begin{frame}[t]{Literature Review}
-A typical writting process follows these steps:
+A typical writing process follows these steps:
 \begin{enumerate}
     \item Define topic (what are you looking to explore?)
     \item Specify questions to guide your research (what, how,...).
     \item Find relevant sources as many as possible, positive
         and negative, take notes of their points, conclusions,
-        strenths and weakness.
+        strengths and weakness.
     \item Analyze and evaluate sources.
     \item A literature review should include at least introduction,
         body and conclusion.
@@ -460,18 +466,16 @@ Some typical ways of organizing the sources into a review:
 \end{itemize}
 \end{frame}
 
-\begin{frame}{About This Slide and ...}
-    You may get this \TeX{} file and a few samples at:
-
-   \url{https://github.com/yfang1644/tex_intro}
-\end{frame}
-
-
 \begin{frame}
-
-\centering
+\begin{center}
 \includegraphics[width=.5\textwidth]{shakinghands.png}
 
-    \texttt{\Huge Thanks!}
+\texttt{\Huge Thanks!}
+\end{center}
+\vfill
+
+You may find this slide source and a few samples at:
+
+   \url{https://github.com/yfang1644/tex_intro}
 \end{frame}
 \end{document}
