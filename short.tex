@@ -2,6 +2,7 @@
 %\usepackage[fontset=none]{ctex}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{ulem}
 \usepackage{boxedminipage}
 \input{style.tex}
 
@@ -14,12 +15,14 @@
 
 \begin{frame}\frametitle<presentation>{Contents}
   \tableofcontents
+
+   \url{https://github.com/yfang1644/tex_intro}
 \end{frame}
 
 \section{What is \LaTeX}
 \begin{frame}{What is \TeX}
 \begin{itemize}
-    \item \TeX{} is a typesetting system (or {\em formatting system}) 
+    \item \TeX{} is a typesetting system (or {\em formatting system})
     that allows you to produce high-quality printable documents.
 
     \item \TeX{} was written by Donald Knuth, released in 1978,
@@ -47,7 +50,7 @@
     Turing Award(2013), ACM Fellow(2014), and more.
 \end{frame}
 
-\begin{frame}[t]{How a Book is Published}
+\begin{frame}[t]{How a Book is Printed}
 Imagine an author is publishing a book:
 \begin{itemize}
     \item He gives his manuscript to a publishing company.
@@ -56,19 +59,19 @@ Imagine an author is publishing a book:
         He marks his instructions into the manuscript, then gives
         it to the typesetters.
 
-        The editor needs knowledges both the author and the publishing.
+        The editor needs knowledges both the author's and the publishing.
     \item The typesetters typeset the book according to these instructions.
 \end{itemize}
 
-When you use WYSIWYG(What you see is what you get), you pretend you are
-    three of them.\\[10pt]
+    When you use WYSIWYG (\alert{What you see is what you get}),
+    you pretend you are three of them.\\[10pt]
 
-When you use \TeX, you are just an author, \LaTeX is the editor,
-\TeX is typesetters(you don't need to know them in most cases).
+    When you use \TeX{}, you are just an author (you know little
+    about publishing), \LaTeX{} is the editor, \TeX{} is typesetters
 
-But \LaTeX is only a programm. You must give guidance, ie. Programming.
+    But \LaTeX{} is only a programm. You must give guidance, i.e.
+    programming.
 \end{frame}
-
 
 \begin{frame}{Why Use \TeX{} And Why Not}
 \LaTeX{} features:
@@ -78,7 +81,7 @@ But \LaTeX is only a programm. You must give guidance, ie. Programming.
         cross-references, tables and figures.
     \item Typesetting of complex mathematical formulas.
     \item Content lists, footnotes, indexes, ..., become very easy.
-    \item Using plain text as opposed to the formatted text, 
+    \item Using plain text as opposed to the formatted text,
         makes the documents small, easy to edit and to maintain.
     \item Consistency.
     \item \TeX{} system is free of charge.
@@ -103,7 +106,7 @@ But \LaTeX is only a programm. You must give guidance, ie. Programming.
 \begin{itemize}
     \item A command starts with backslash and then have a name
         consisting of letters only.
-    \item Some commands require parameters. Parameters are put in 
+    \item Some commands require parameters. Parameters are put in
         \{\ \ \} after command. Some commands take optional parameters.
         Optional parameter is put in [\ \ ].\\[2ex]
 
@@ -125,7 +128,7 @@ But \LaTeX is only a programm. You must give guidance, ie. Programming.
         OS          &   Distro\\\hline
         All-platform & TeX Live\\
         Windows    & MikTeX \\
-        Mac OS    & MacTeX\\\hline
+        Mac OS    & MacTeX\\\hline\hline
     \end{tabular}
 \end{table}
 
@@ -137,7 +140,7 @@ But \LaTeX is only a programm. You must give guidance, ie. Programming.
 \end{center}
 
 In IDE, this command is executed by clicking the compiling-icon.
-
+\\[1ex]
 Sometime, you need \alert{xelatex} twice or more to produce correct
 cross-references.
 \end{frame}
@@ -171,8 +174,8 @@ cross-references.
         a paragraph separation.
 \end{itemize}
 
-DO NOT focus too much on {\em how the document looks like}.
-It is the publisher's job.
+    \alert{DO NOT} focus too much on {\em how the document looks like}.
+    It is the publisher's job.
 
 \end{frame}
 
@@ -185,6 +188,7 @@ It is the publisher's job.
         \textbackslash mbox\{World-War-III\}.
     \item Command \alert{\textbackslash newline} or
         \alert{\textbackslash newpage} will change the form of
+
         a paragraph intentionally.
     \item Paragraphs should be structured logically at a higher level
         (\alert{subsection}, \alert{section}, \alert{chapter}, etc).
@@ -208,8 +212,9 @@ Sections are automatically numbered. You should not number chapters
 and sections intentionally. Besides, equations, theorems, figures,
 tables, etc. are also numbered automatically.
 
-\textbackslash setcounter{tocdepth}{2} will list sections in content
-    until level 2.
+    \fbox{\textbackslash setcounter\{tocdepth\}\{2\}}
+
+    will list sections in content until level 2.
 \end{frame}
 
 \begin{frame}[t]{Big Projects}
@@ -291,18 +296,45 @@ Fibonacci function $fib(n)$:
     \\[3ex]
 
 \alert{name} is a new environment name. \alert{text} is the text
-printed in the document as a label. \alert{counter} specifies the 
+printed in the document as a label. \alert{counter} specifies the
 name of a previously declared {\em theorem}. \alert{section} specifies
 the sectional unit within which the {\em theorem} should get its numbers.
+
+    \begin{example}
+        \textbackslash newtheorem\{law\}\{Law\}[section]
+    \end{example}
+
+\end{frame}
+
+\begin{frame}[fragile]{Theorems}
+\newtheorem{law}{Law}[section]
+\begin{verbatim}
+\begin{law}
+  An object doesn't change its velocity
+  unless acted upon by a force.
+\end{law}
+\begin{law}
+  $$ \mathbf{F}=m\mathbf{a} $$
+\end{law}
+\end{verbatim}
+
+will reads:
+
+\begin{law}
+  An object doesn't change its velocity unless acted upon by a force.
+\end{law}
+\begin{law}
+  $$ \mathbf{F}=m\mathbf{a} $$
+\end{law}
 
 \end{frame}
 
 \section{Figures and Tables}
 \begin{frame}[fragile]{Figures and Tables}
-    Figures and tables are called floating object, because they occupy
-    large space, ie. they may not appear in the current context.
-    Therefore, you should avoid using ``See figure below'' or
-    ``Refer the table above'' in your documents.
+    Figures and tables are called \alert{floating object}, because
+    they occupy large space, i.e. they may not appear in the current
+    context. Therefore, you should avoid using ``\sout{See figure below}''
+    or ``\sout{Refer the table above}'' in your documents.
 
 \begin{verbatim}
 \begin{figure}
@@ -358,7 +390,7 @@ Fig.\ref{pic:knuth} is a photo of Doland Knuth.
     chapter and section, page, etc.
 \begin{itemize}
     \item The theory is illustrated in equation
-        \alert{\textbackslash ref\{mass-energy\}} in page 
+        \alert{\textbackslash ref\{mass-energy\}} in page
         \alert{\textbackslash pageref\{mass-energy\}} of chapter
         \alert{\textbackslash ref\{einstein\}}.
 
@@ -403,7 +435,7 @@ A typical writting process follows these steps:
     \item Find relevant sources as many as possible, positive
         and negative, take notes of their points, conclusions,
         strenths and weakness.
-    \item Analyze and evaluate sources .
+    \item Analyze and evaluate sources.
     \item A literature review should include at least introduction,
         body and conclusion.
 \end{enumerate}
@@ -434,6 +466,6 @@ Some typical ways of organizing the sources into a review:
 \centering
 \includegraphics[width=.5\textwidth]{shakinghands.png}
 
-    \Large   \texttt{Thanks}
+    \texttt{\Huge Thanks!}
 \end{frame}
 \end{document}
