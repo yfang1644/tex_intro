@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    本文档尽可能提供最小化tex模板，帮助初学者尽快适应
+%    '%' 是单行注释符
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+% 引用 'article' 模板，缺省格式是：A4纵向幅面，单面(即不区分奇偶页)
+\usepackage[fontset=none]{ctex}
+% 中文字体包，选项 fontset=none 表示无系统定义字体，须自己配置,
+% 配置方法见下面的 setCJKmainfont 命令。
+% windows系统可以用 fontset=winfont，ubuntu系统可以用fontset=ubuntu,
+% 省去自己配置字体工作
+
+\setCJKmainfont[BoldFont={文泉驿等宽正黑},
+                ItalicFont={AR PL UKai CN}]{AR PL SungtiL GB}
+% 中文字体设置：主文档使用宋体，斜体环境用楷体，粗体用黑体
+
+%\setmainfont{Times New Roman}
+%\setsansfont{Droid Sans}
+%\setmonofont{DejaVu Sans Mono}
+% 英文字体通常不需要自己设置。如果想自己设置，就像上面三行那样
+
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+% 页面布局设置，上下左右各留1英寸边距
+\usepackage{graphicx}     % 如果有插图，需引入graphicx包
+\usepackage{listings}     % listings包用于排版程序清单
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{
+    这里写标题。标题将会以较大字号居中打印
+}
+
+\author{
+    张三~~~~李四~~~~王小二$^1$
+ \\ \\
+$^1$这个是小组长
+}
+% tex 文字编排比较自由散漫，任意个连续空格等效于一个空格。如要有意拉开
+% 空格，可像上面那样用波浪号 '~' 填充。
+% 任意个连续空行等效于一个空行。空行是自然段的分界
+% title 和 author 环境里不允许有多余的空行。如果有意要制造行距，两个反斜线
+% 表示增加一个空行
+
+\date{\today}
+% 今天的日期。也可以强制写成 \date{2019年2月29日}
+
+% 以上称作'导言区(preamble)'。从 \begin{document}开始是正文
+
+\begin{document}
+\maketitle     % \maketitle 将生成标题、作者和日期
+
+\begin{abstract}
+在abstract环境里写摘要。摘要要求简单明了，让读者通过短短几句话了解文章的
+大概内容。
+
+本文试图用最小案例介绍使用\LaTeX 进行排版的基本方法。为避免初学者的恐惧，
+本文采用了最简单的做法，仅作为入门向导。一些做法可能不是最合理的，建议
+在学习过程中参考更多的文档\cite{tex}。
+
+中文请使用utf--8编码。体面点的文档编辑器都知道什么是utf--8，在执行
+``另存为...''操作的时候会出现编码格式的选项。
+  
+\end{abstract}
+
+\textbf{关键词：不要~~~~超过~~~~三个词}
+% 如果需要强调，可通过 \textbf 命令将字体加粗。
+
+\section{这是一节}
+
+对于习惯word工具的人来说，使用\LaTeX 最大的问题在于转变思想。word不是
+专门用于排版的工具(大多数人使用word时只是以为自己在排版)。而使用
+\LaTeX 时，作者只需要关注文章的内容和逻辑结构，不要过多地考虑打印版是
+什么样子。例如，你应该考虑哪些文字组成一个自然段，哪些自然段构成一个章节。
+你无需考虑一段文字在什么地方换行，这一小节的编号是几.几。
+
+\subsection{章节}
+article 模板的层次结构由 part、section、subsection、subsubsection、
+paragraph、subparagraph 六层构成。一般小篇幅的文章不使用 part 而是从
+section 开始编起。
+
+\subsubsection{这是某一节里的小节}
+不要手工给文章的逻辑层次编号。使用结构命令自动编号可保证风格的统一，改变
+风格也很容易，只需要改变模板一处而不用逐一改变tex文档。
+
+\subsection{插图}
+如果要插图，使用 figure 环境。见图\ref{njulogo}
+
+\section{图表的编号和引用}
+让 tex 给图、表自动编号。 图表属于浮动对象，排版后，他们的位置可能会发生
+变化。因此，不要用``如\textbf{下图}所示''、``见\textbf{上表}''这样的文字。
+\subsection{插图比较简单}
+图、表的编号和引用由 $\backslash$ref\{ \} 和$\backslash$label\{ \}
+一对命令构成。
+
+图表的名称用 $\backslash$caption 构造。一般图的 caption 在图的下方，
+而表格的 caption 在表的上方。为美观起见，不与文字混排的图表通常都要居中。
+
+\begin{figure}
+\centering   % 对齐命令: \flushleft(缺省)、\flushright、\centering
+\includegraphics[width=3cm]{njulogo.pdf}
+% width、height 可以用来控制图的大小,rotate控制旋转角度
+\caption{这是南大的logo} \label{njulogo}
+\end{figure}
+
+\subsection{表格稍微复杂一些}
+表格的环境是 tabular，通常还要在外面再套一层 table 环境，使之浮动。
+如果实在想让浮动对象出现在固定位置，可以试着给浮动环境加一个选项``!h''，
+见表\ref{pub_tools}（下表）。
+
+\begin{table}[!h]
+\centering
+\caption{几种排版工具比较}  \label{pub_tools}
+\begin{tabular}{c|c|c}
+    \hline
+  排版工具 & 特点 & 使用权   \\ \hline
+   word    & 所见所得 & 咨询MS \\
+    方正    & 专业排版工具 &   \\
+   LaTeX   &  ``所见非所得'' & 开源、免费\\ \hline
+\end{tabular}
+\end{table}
+
+同样，数学环境也应自动编号，比如公式(\ref{form1})。
+
+\begin{equation} \label{form1}
+    \int \sin(x) dx = -\cos(x) + C
+\end{equation}
+
+\subsection{图的格式}
+ xelatex 直接支持 png、jpg、bmp、pdf 图形格式，其中 pdf 是矢量图，如果有
+ 这种格式，尽量使用它。
+ 
+\section{参考文献的引用}
+
+参考文献使用 thebibliography 环境\cite{luo}。每一篇文献是一个带标签的
+$\backslash$bibitem 项。标签供 $\backslash$cite 命令引用。可适当改变作者、
+书名或文章标题、出版社等几部分的字体。同样，参考文献顺序也不要手工编号。
+
+\section{文档生成}
+
+Linux系统中通过编译命令 xelatex 将 .tex 格式的文件生成 pdf。如果有交叉引用，
+可能需要编译两次(更复杂的文档可能要编译三次)。
+
+Windows系统一般会有集成编辑环境，通过菜单项操作生成 pdf 文档。
+
+\begin{thebibliography}{99}
+\bibitem{wu} \textit{吴承恩}. ~~ \textbf{西游记},~~ 人民文学出版社,1995.10
+\bibitem{tex} \textit{Tobias Oetiker}.~~
+    \textbf{A not so short introduction to \LaTeX-2$\epsilon$},
+    原版 Version4.20, May 31, 2006
+\bibitem{luo} \textit{罗贯中}. ~~ \textbf{三国演义},~~ 大众书局,2000.1
+\end{thebibliography}
+\newpage
+
+\lstinputlisting[language={[LaTeX]TeX},caption={源文本清单}]{template.tex}
+
+\end{document}

@@ -1,4 +1,4 @@
-\documentclass[10pt]{beamer}
+\documentclass[10pt,t]{beamer}
 %\usepackage[fontset=none]{ctex}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -51,7 +51,7 @@
     Turing Award(2013), ACM Fellow(2014), and more.
 \end{frame}
 
-\begin{frame}[t]{How a Book is Printed}
+\begin{frame}{How a Book is Printed}
 Imagine an author is publishing a book:
 \begin{itemize}
     \item He gives his manuscript to a publishing company.
@@ -102,7 +102,7 @@ Imagine an author is publishing a book:
     morekeywords={maketitle},keywordstyle=\color{red}]{einstein.tex}
 \end{frame}
 
-\begin{frame}[t]{Commands and Environments}
+\begin{frame}{Commands and Environments}
     \LaTeX{} uses commands to format text.
 \begin{itemize}
     \item A command starts with backslash and then have a name
@@ -121,7 +121,7 @@ Imagine an author is publishing a book:
 
 \end{frame}
 
-\begin{frame}[t]{\TeX{} Distributions}
+\begin{frame}{\TeX{} Distributions}
 \begin{table}
 \centering
     \caption{\TeX{} distributions}
@@ -142,7 +142,7 @@ Imagine an author is publishing a book:
 
 In IDE, this command is executed by clicking the compiling-icon.
 \\[1ex]
-Sometime, you need \alert{xelatex} twice or more to produce correct
+Sometimes, you need \alert{xelatex} twice or more to produce correct
 cross-references.
 \end{frame}
 
@@ -164,7 +164,7 @@ cross-references.
 \end{frame}
 
 \section{Document Structure}
-\begin{frame}[t]{Text}
+\begin{frame}{Text}
     \TeX{} simple rules:
 \begin{itemize}
     \item Input letters, digits and most ASCII chars as text, except only
@@ -180,7 +180,7 @@ cross-references.
 
 \end{frame}
 
-\begin{frame}[t]{Sentence and Paragraph}
+\begin{frame}{Sentence and Paragraph}
 \begin{itemize}
     \item A group of text between blank lines forms a paragraph.
         A paragraph is the typographical form that should reflect
@@ -196,7 +196,7 @@ cross-references.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Document Structure}
+\begin{frame}{Document Structure}
 Paragraphs are organized into sections.
 A document is structured using following levels:
 \begin{description}
@@ -218,7 +218,7 @@ tables, etc. are also numbered automatically.
     will list sections in content until level 2.
 \end{frame}
 
-\begin{frame}[t]{Big Projects}
+\begin{frame}{Big Projects}
     Big document can be split into several parts. \LaTeX{} uses
     command \alert{\textbackslash include} or \alert{\textbackslash input}
     to insert the contents of a file.\\[3ex]
@@ -239,7 +239,7 @@ tables, etc. are also numbered automatically.
 \begin{frame}[fragile]{Lists}
     \LaTeX{} uses 3 basic lists: itemize, enumerate and description.
 
-\begin{verbatim}
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
 Fibonacci function $fib(n)$:
 \begin{enumerate}
     \item BEGIN
@@ -248,7 +248,7 @@ Fibonacci function $fib(n)$:
     \item return $fib(n-1)+fib(n-2)$
     \item END \label{end}
 \end{enumerate}
-\end{verbatim}
+\end{lstlisting}
 
 \begin{boxedminipage}{0.8\textwidth}
     Fibonacci function $fib(n)$:
@@ -287,7 +287,7 @@ Fibonacci function $fib(n)$:
 \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Newtheorem}
+\begin{frame}{Newtheorem}
 
 {\em Lemmas, Definitions, Axioms} and similar structures are often used
     in mathematical documents.\\[3ex]
@@ -309,7 +309,8 @@ the sectional unit within which the {\em theorem} should get its numbers.
 
 \begin{frame}[fragile]{Theorems}
 \newtheorem{law}{Law}[section]
-\begin{verbatim}
+
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
 \begin{law}
   An object doesn't change its velocity
   unless acted upon by a force.
@@ -317,7 +318,7 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \begin{law}
   $$ \mathbf{F}=m\mathbf{a} $$
 \end{law}
-\end{verbatim}
+\end{lstlisting}
 
 will reads:
 
@@ -337,14 +338,14 @@ will reads:
     context. Therefore, you should avoid using ``\sout{See figure below}''
     or ``\sout{Refer the table above}'' in your documents.
 
-\begin{verbatim}
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
 \begin{figure}
 \centering
   \includegraphics[width=0.5\textwidth]{Knuth.jpg}
   \caption{Doland Knuth(1938--)}\label{pic:knuth}
 \end{figure}
 Fig.\ref{pic:knuth} is a photo of Doland Knuth.
-\end{verbatim}
+\end{lstlisting}
 
     \LaTeX{} supports both vector graphics(PDF, EPS) and raster graphics
     (JPG, PNG, BMP, etc.).
@@ -352,7 +353,8 @@ Fig.\ref{pic:knuth} is a photo of Doland Knuth.
 \end{frame}
 
 \begin{frame}[fragile]{Figures and Tables}
-\begin{verbatim}
+
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
 \begin{table}
 \centering \caption{\TeX{} distributions}
   \begin{tabular}{l|cr}\hline\hline
@@ -362,14 +364,15 @@ Fig.\ref{pic:knuth} is a photo of Doland Knuth.
     Mac OS       & MacTeX   & TeXShop\\\hline
   \end{tabular}
 \end{table}
-\end{verbatim}
+\end{lstlisting}
+
     \alert{r}, \alert{c} and \alert{l} specify alignment.
     \alert{\&} used as field separation. \alert{$|$} draws vertical
     line, \alert{\textbackslash hline} draws a horizontal line.
 \end{frame}
 
 \section{Packages}
-\begin{frame}[t]{Packages}
+\begin{frame}{Packages}
     \TeX{} distributions come with a large number of pre-installed packages.
 \begin{description}
     \item [geometry] Customizing page layout, including paper size,
@@ -385,7 +388,7 @@ Fig.\ref{pic:knuth} is a photo of Doland Knuth.
 \end{frame}
 
 \section{Cross References}
-\begin{frame}[t]{Cross References}
+\begin{frame}{Cross References}
     Almost all tags (using \textbackslash label\{...\})
     can be referenced: figure, table, equation,
     chapter and section, page, etc.
@@ -417,7 +420,8 @@ A bibtex database management software is suggested:
     \bibliography{bookref}
 \end{frame}
 
-\begin{frame}[t]{Where to Find References}
+\iffalse
+\begin{frame}{Where to Find References}
 \begin{itemize}
     \item When you are in NJU campus, you may feel happy that you have
     free access to many cyber-libraries via:
@@ -432,7 +436,7 @@ Literature review may become the first part of your thesis(dissertation),
 or a stand-alone report.
 \end{frame}
 
-\begin{frame}[t]{Literature Review}
+\begin{frame}{Literature Review}
 A typical writing process follows these steps:
 \begin{enumerate}
     \item Define topic (what are you looking to explore?)
@@ -446,7 +450,7 @@ A typical writing process follows these steps:
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[t]{Organize Your Sources}
+\begin{frame}{Organize Your Sources}
 Begin composing:
 \begin{itemize}
     \item Read most recently, first-handed sources, select only
@@ -465,7 +469,7 @@ Some typical ways of organizing the sources into a review:
     \item Methodological
 \end{itemize}
 \end{frame}
-
+\fi
 \begin{frame}
 \begin{center}
 \includegraphics[width=.5\textwidth]{shakinghands.png}
