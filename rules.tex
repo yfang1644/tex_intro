@@ -1,0 +1,122 @@
+\documentclass[10pt,t]{beamer}
+\usepackage[fontset=ubuntu]{ctex}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{boxedminipage}
+\input{style.tex}
+
+\lecture[1]{软件开发规范}{}
+
+\begin{document}
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}\frametitle<presentation>{Contents}
+  \tableofcontents
+
+\end{frame}
+
+\section{C语言代码风格}
+\begin{frame}{格式和缩进}
+\begin{itemize}
+    \item 代码块缩进
+    \item 逻辑块之间空行
+    \item 长语句断行
+
+    \item more coding style ref. Kernel \alert{Documentation/CodingStyle}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{注释}
+\begin{itemize}
+    \item 源文件的顶部注释: 文件名, 作者, 版本历史等
+    \item 函数注释: 功能, 参数, 返回值, 错误码等
+    \item 语句组上方注释
+    \item 代码行右侧注释
+    \item 复杂的结构体定义注释
+    \item 复杂的宏定义和变量声明注释
+\end{itemize}
+\end{frame}
+
+\begin{frame}{变量命名}
+命名要清晰明了,易于理解
+\begin{itemize}
+    \item 使用完整单词、去元音缩写、首字母缩写...
+
+        \alert{count} $\to$ \alert{cnt}, \alert{block} $\to$ \alert{blk},
+        \alert{length} $\to$ \alert{len},
+        \alert{internationalization} $\to$ \alert{i18n} ...
+    \item 变量用下划线分割的小写字母单词, 常量用大写字母单词加下划线
+
+        \alert{radix\_tree\_insert}, \alert{RADIX\_TREE\_MAP\_SHIFT}
+    \item 全局变量和函数命名要力求详细, 宁可多用几个单词多写几个下划线
+
+    \item 局部变量和内部函数命名可以略短,但不能太简单.
+        循环变量 \alert{i}, \alert{j}, \alert{k} 等除外
+    \item 不建议用汉语拼音命名标识符
+
+\end{itemize}
+    其他命名法：驼峰命名法、匈牙利命名法...
+\end{frame}
+
+\begin{frame}{函数设计原则}
+\begin{itemize}
+
+    \item 函数功能尽可能单一, 不求面面俱到 (考虑重用性和维护性)
+    \item 函数内缩进层次不宜过多, 一般不超过 3 层。否则应考虑分割
+    \item 函数行数一般不超过 2 屏 (48 行), 否则应考虑分割
+    \item 函数名称通常应包含动词, 如
+        
+        \alert{get\_current()}、\alert{radix\_tree\_insert()}
+
+    \item 重要函数上方必须加注释, 说明功能、参数、返回值、错误码等
+
+    \item 函数内局部变量数不宜超过 10 个, 否则应考虑分割
+\end{itemize}
+\end{frame}
+
+\begin{frame}{调试指令}
+\begin{itemize}
+    \item printf() 输出
+    \item assert() 断言方法
+\end{itemize}
+
+\end{frame}
+
+
+\section{软件质量}
+\begin{frame}{软件质量的功能性指标}
+\begin{itemize}
+    \item 正确性 (Correctness)
+
+        按照需求正确执行任务的能力
+    \item 健壮性 (Robustness)
+    \begin{itemize}
+        \item 容错能力
+        \item 恢复能力
+    \end{itemize}
+    \item 可靠性 (Reliability)
+
+        平均无故障时间 (MTTF)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{软件质量的非功能性指标}
+\begin{itemize}
+    \item 性能 (Performance) $\to$ 算法复杂度分析
+    \item 易用性 (Usability) (由用户判断)
+    \item 清晰性 (Clarity) ，或称可读性 (Readability)
+    \item 安全性 (Security) $\to$ 防止被非法入侵
+    \item 可扩展性 (Extendibility) $\to$ 规模和复杂性
+    \item 兼容性 (Compatibility)
+    \item 可移植性 (Portability)
+    \begin{itemize}
+        \item 设备相关程序和设备无关程序分离
+        \item 功能模块和用户界面分离
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}

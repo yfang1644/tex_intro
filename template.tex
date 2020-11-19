@@ -2,7 +2,7 @@
 %    本文档尽可能提供最小化tex模板，帮助初学者尽快适应
 %    '%' 是单行注释符
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass{article}
+\documentclass[12pt]{article}
 % 引用 'article' 模板，缺省格式是：A4纵向幅面，单面(即不区分奇偶页)
 \usepackage[fontset=none]{ctex}
 % 中文字体包，选项 fontset=none 表示无系统定义字体，须自己配置,
@@ -23,6 +23,11 @@
 % 页面布局设置，上下左右各留1英寸边距
 \usepackage{graphicx}     % 如果有插图，需引入graphicx包
 \usepackage{listings}     % listings包用于排版程序清单
+\usepackage{subfig}
+
+\usepackage{listings}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{
@@ -64,8 +69,68 @@ $^1$这个是小组长
 \textbf{关键词：不要~~~~超过~~~~三个词}
 % 如果需要强调，可通过 \textbf 命令将字体加粗。
 
-\section{这是一节}
+见图\ref{XXXX} \pageref{XXXX}
 
+
+\section{这是一节}
+\fontsize{10}{10}\selectfont
+
+\begin{figure}[htbp]
+    \centering
+\subfloat[这是图a]{
+    \includegraphics[width=0.3\textwidth]{picture.pdf}
+}
+\subfloat[这是图b]{
+    \includegraphics[width=0.3\textwidth]{picture.pdf}
+}
+
+    \caption{asdfasdfsad}\label{XXXX}
+
+\end{figure}
+
+
+\begin{lstlisting}[language=python,numbers=left}]
+
+\inputlisting{einstein.tex}
+
+
+int main(int argc, char *argv[])
+{
+    printf("Hello, world\n");
+}
+
+\end{lstlisting}
+
+
+
+\begin{table}[htbp]
+\centering
+\caption{这是表格}\label{tab:XXX}
+
+\begin{tabular}{|l|l|c|}\hline
+    XX & XX &        \\\hline
+    XX & XX & YYY    \\\hline
+    XX & XX & YYY    \\\cline{1-1} \cline{3-3}
+
+
+\end{tabular}
+
+
+\end{table}
+
+see \ref{equ1}
+
+
+
+$\sin, \cos \exp  \log \asin \tan$
+
+\begin{equation}\label{equ1}
+    \mathbf{F}=m \mathbf{a}
+
+\end{equation}
+
+
+\Huge   \LARGE \Large \large \normalsize \small \scriptsize  \tiny 
 对于习惯word工具的人来说，使用\LaTeX 最大的问题在于转变思想。word不是
 专门用于排版的工具(大多数人使用word时只是以为自己在排版)。而使用
 \LaTeX 时，作者只需要关注文章的内容和逻辑结构，不要过多地考虑打印版是

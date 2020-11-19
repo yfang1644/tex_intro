@@ -1,0 +1,115 @@
+%%============================================================================
+%%
+%%       Filename:  table1.tex
+%%
+%%    Description:  thesis review
+%%
+%%        Version:  1.0
+%%        Created:  09/08/2018 09:23:46 PM
+%%       Revision:  none
+%%
+%%         Author:  Fang Yuan (yfang@nju.edu.cn)
+%%   Organization:  nju
+%%      Copyright:  Copyright (c) 2018, Fang Yuan
+%%
+%%          Notes:  
+%%                
+%%============================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage[fontset=none]{ctex}
+\usepackage[paperwidth=15cm, paperheight=23.5cm,
+            margin=0pt, top=3.5cm, bottom=1.5ex,
+            left=0pt,right=0pt]{geometry}
+\usepackage[a4,frame,center]{crop}
+\usepackage{ltxtable}
+
+\setCJKfamilyfont{caiyun}{STCaiyun}
+\setCJKfamilyfont{songti}{HYZhongSongS}
+\setCJKfamilyfont{kaiti}{AR PL UKai CN}
+\setCJKfamilyfont{fangsong}{STFangsong}
+\setCJKfamilyfont{heiti}{WenQuanYi Micro Hei}
+\setCJKfamilyfont{xinwei}{STXinwei}
+\setCJKfamilyfont{lishu}{LiSu}
+\setCJKmainfont{SimSun}
+%\setCJKmainfont[BoldFont={WenQuanYi Micro Hei}, ItalicFont={STFangsong}]{SimSun}
+\setCJKsansfont{WenQuanYi Micro Hei}
+\setCJKmonofont{AR PL UKai CN}
+
+%\setmainfont{Times New Roman}
+\setsansfont{Droid Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\newcommand*{\songti}{\CJKfamily{songti}}   % 宋体
+\newcommand*{\kaishu}{\CJKfamily{kaiti}}     % 楷书
+\newcommand*{\fs}{\CJKfamily{fangsong}}   % 仿宋
+\newcommand*{\heiti}{\CJKfamily{heiti}}     % 黑体
+\newcommand*{\wei}{\CJKfamily{xinwei}}    % 新魏
+\newcommand*{\lishu}{\CJKfamily{lishu}}   % 隶书
+\newcommand*{\cy}{\CJKfamily{caiyun}}     % 彩云
+
+
+\newcommand*\markC{%
+\begin{picture}(0,0)
+    \linethickness{1.3pt}\unitlength 1cm
+    \put(0,0){\framebox(15,20)[c]{}}
+\end{picture}}
+        
+\newcommand*\markinfo{
+    \shortstack{
+    {\renewcommand{\CJKglue}{\hskip 1em} \bf \Large 南京大学\vspace{5mm}}
+        \\
+    {\renewcommand{\CJKglue}{\hskip .4em}
+       \bf \Large 研究生学位申请书$\cdot$附表一\vspace{5mm}}
+        \\
+    \fontsize{16}{16}\selectfont
+    \fs \large 指导教师对研究生学位(毕业)论文评语
+    }
+}
+\cropdef[\markinfo]\relax\relax\markC\relax{istin}
+\crop[istin]
+\addtolength{\leftskip}{1em}
+\addtolength{\rightskip}{1em}
+    
+\begin{document}
+\pagestyle{empty}
+\fontsize{12}{16}\selectfont
+\begin{center}
+\begin{tabularx}{\textwidth}{c|c|c|c|c|X|X}
+研究生姓名 & \multicolumn{2}{c|}{董其江} & 入学时间 & 2016.03 & 攻读学位
+        & 工程硕士\\\hline
+所~学~专~业   & \multicolumn{2}{c|}{电子与通信工程}
+        & 研究方向 & \multicolumn{3}{l}{机电控制}\\\hline
+论~文~题~目 & \multicolumn{6}{l}{新型机车制动机 机电一体化设计}\\\hline
+\end{tabularx}
+\vskip 8mm
+\Large \kaishu 导师评语\end{center}
+
+\fontsize{12}{14}\selectfont
+
+铁路运输是国民经济发展的命脉。制动系统是整个机车的一个重要组成部分，
+随着列车运行速度等级的不断提高,制动系统在整个列车系统中担任的角色越来越重要。
+论文以机车制动机机电一体化为研究对象，具有理论研究意义和实际应用价值。
+
+论文系统地讨论了制动系统的原理,对制动控制柜各模块的功能、管路
+图等做了进一步的分析和阐述。
+根据客户的实际布置空间和机车的工作环境要求, 结合最新的 CCB-3 的设计理念,
+提出了满足这些要求的设计思路，设计了一种全新的机车制动柜和电气系统。
+并对电气系统进行了相应的仿真设计验证,在模块的易用性、扩展性、通用性、
+可维护性方面都得到了较大的改进。
+
+论文选题符合专业培养目标，能够达到综合训练目标，时效性较强。作者在
+选题和论文撰写过程中，查阅了大量相关文献，结合工作经验，灵活运用已学
+知识解决课题中遇到的问题。论文表现出作者具有扎实的理论基础，具备独立
+从事科学研究的能力，工作细致踏实，具有团结协作精神。
+
+本人认为论文达到硕士学位论文水平，同意该生进行硕士研究生论文答辩和
+硕士学位申请。
+
+\vfill
+\hfill {\heiti 指导教师} \underline{\hskip 35mm} (签章)\qquad\qquad
+\vskip 5mm
+\hfill 年\hskip 12mm 月\hskip 12mm 日\qquad\qquad
+
+\noindent(可加附页)
+
+\end{document}

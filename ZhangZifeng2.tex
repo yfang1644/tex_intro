@@ -1,0 +1,120 @@
+%%============================================================================
+%%
+%%       Filename:  table2.tex
+%%
+%%    Description:  thesis review
+%%
+%%        Version:  1.0
+%%        Created:  09/08/2018 09:23:46 PM
+%%       Revision:  none
+%%
+%%         Author:  Fang Yuan (yfang@nju.edu.cn)
+%%   Organization:  nju
+%%      Copyright:  Copyright (c) 2018, Fang Yuan
+%%
+%%          Notes:  
+%%                
+%%============================================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage[fontset=none]{ctex}
+\usepackage[paperwidth=15cm, paperheight=23.5cm,
+            margin=0pt, top=3.5cm, bottom=1.5ex,
+            left=0pt,right=0pt]{geometry}
+\usepackage[a4,frame,center]{crop}
+\usepackage{ltxtable}
+
+\setCJKfamilyfont{caiyun}{STCaiyun}
+\setCJKfamilyfont{songti}{HYZhongSongS}
+\setCJKfamilyfont{kaiti}{AR PL UKai CN}
+\setCJKfamilyfont{fangsong}{STFangsong}
+\setCJKfamilyfont{heiti}{WenQuanYi Micro Hei}
+\setCJKfamilyfont{xinwei}{STXinwei}
+\setCJKfamilyfont{lishu}{LiSu}
+\setCJKmainfont{SimSun}
+%\setCJKmainfont[BoldFont={WenQuanYi Micro Hei}, ItalicFont={STFangsong}]{SimSun}
+\setCJKsansfont{WenQuanYi Micro Hei}
+\setCJKmonofont{AR PL UKai CN}
+
+%\setmainfont{Times New Roman}
+\setsansfont{Droid Sans}
+\setmonofont{DejaVu Sans Mono}
+
+\newcommand*{\songti}{\CJKfamily{songti}}   % 宋体
+\newcommand*{\kaishu}{\CJKfamily{kaiti}}     % 楷书
+\newcommand*{\fs}{\CJKfamily{fangsong}}   % 仿宋
+\newcommand*{\heiti}{\CJKfamily{heiti}}     % 黑体
+\newcommand*{\wei}{\CJKfamily{xinwei}}    % 新魏
+\newcommand*{\lishu}{\CJKfamily{lishu}}   % 隶书
+\newcommand*{\cy}{\CJKfamily{caiyun}}     % 彩云
+
+\newcommand*\markC{%
+\begin{picture}(0,0)
+    \linethickness{1.3pt}\unitlength 1cm
+    \put(0,0){\framebox(15,20)[c]{}}
+\end{picture}}
+        
+\newcommand*\markinfo{
+    \shortstack{
+    {\bf \Large 南~京~大~学\vspace{5mm}}
+        \\
+    {\renewcommand{\CJKglue}{\hskip .4em}
+       \bf \Large 研究生学位申请书$\cdot$附表二\vspace{5mm}}
+        \\
+    \fontsize{16}{16}\selectfont
+    \fs \large 学位（毕业）论文评阅意见表
+    }
+}
+\cropdef[\markinfo]\relax\relax\markC\relax{istin}
+\crop[istin]
+\addtolength{\leftskip}{1em}
+\addtolength{\rightskip}{1em}
+    
+\begin{document}
+\pagestyle{empty}
+\fontsize{12}{16}\selectfont
+\begin{center}
+\begin{tabularx}{\textwidth}{c|c|c|c|c|X|X}
+研究生姓名 & \multicolumn{2}{c|}{张梓峰} & 入学时间 & 2016 & 攻读学位
+        & 工程硕士\\\hline
+所~学~专~业   & \multicolumn{2}{c|}{电子与通信工程}
+        & 研究方向 & \multicolumn{3}{l|}{音频信号处理}\\\hline
+论~文~题~目 & \multicolumn{6}{l|}{基于音频信号的高带宽数据传输系统的设计与实现}\\\hline
+    导师姓名 & 方元 & 职称 & 副教授 & 所在单位 &
+    \multicolumn{2}{l|}{南京大学电子学院}\\\hline
+    评阅人姓名  &  & 职称 &      & 所在单位 & 
+    \multicolumn{2}{l|}{南京大学电子学院}\\\hline
+\end{tabularx}
+\vskip 8mm
+\Large \kaishu 学术评语\end{center}
+
+\fontsize{12}{14}\selectfont
+
+随着汽车工业的发展, 人们对车载电子系统的要求越来越高。
+而当电子系统的软件需要更新时, 又时常缺少廉价便捷的方法。
+这时人们想到了音响系统, 它除了可以传输模拟信号以外, 也可以设法让它传输
+数字信号。张梓峰同学的论文《基于音频信号的高带宽数据传输系统的设计与实现》
+即是这一设想的有益尝试。
+
+本文首先分析了基于模拟音频信号传输数据的背景及现状, 介绍了各项技术的优缺点;
+接着讨论了本设计所需的理论和核心技术, 包括音频合成、频谱分析技术、窗函数, 
+以及相应的校验和签名技术等; 根据传输系统的具体需求, 设计了数据传输系统模型,
+并设计实现了此传输系统。其中根据具体情况, 设计了一套传输协议。
+
+论文详细介绍了各模块的具体设计过程。最后在PC上使用 Python 语言对系统
+进行了模拟, 证明该方案的有效性, 单通道传输性能可达14.3kbps。
+该方案可被移植到相应的项目里, 以实现软件更新升级的功能。
+
+论文选题符合专业培养目标, 具有实用价值。作者在选题和论文撰写过程中,
+查阅了大量相关文献, 结合工作经验, 灵活运用已学知识解决课题中遇到的问题。
+论文表现出作者具有扎实的理论基础, 具备独立从事科学研究的能力, 工作细致踏实, 具有团结协作精神。
+
+论文达到硕士学位论文水平, 同意该生进行硕士论文答辩和硕士学位申请。
+
+\vfill
+\hfill {\heiti 指导教师} \underline{\hskip 35mm} (签章)\qquad\qquad
+\vskip 3mm
+\hfill 年\hskip 12mm 月\hskip 12mm 日\qquad\qquad
+
+\noindent(可加附页)
+
+\end{document}
