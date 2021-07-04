@@ -1,0 +1,252 @@
+% $Header: /Users/joseph/Documents/LaTeX/beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 90e850259b8b 2007/01/28 20:48:30 tantau $
+
+\documentclass[14pt,t]{beamer}
+\usepackage[fontset=ubuntu]{ctex}
+\usepackage[english]{babel}
+\geometry{papersize={160mm,90mm}}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+
+\mode<presentation>
+{%
+  \usetheme{Warsaw}%
+  \setbeamercovered{transparent}%
+}
+
+\title[树莓派体验] % (optional, use only with long paper titles)
+{树莓派体验}
+
+\subtitle{}
+
+% (optional, use only with lots of authors)
+\author[Fang Yuan (yfang@nju.edu.cn)]
+{方元 (yfang@nju.edu.cn)}
+
+\institute[南京大学电子学院] % (optional, but mostly needed)
+{南京大学电子学院}
+
+\date[expcourse] % (optional, should be abbreviation of conference name)
+{\today}
+
+\subject{电子计算机研究与应用}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\pgfdeclareimage[height=7mm]{university-logo}{njulogo.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]%
+%{%
+%  \begin{frame}<beamer>{Agenda}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Agenda}
+    \small
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+
+\section{计算机操作系统}
+
+\subsection{什么是计算机}
+
+\begin{frame}{什么是计算机}
+
+\begin{figure}
+\centering
+\includegraphics[width=.5\textwidth]{computers.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{什么是计算机}
+
+\begin{center}
+\includegraphics[width=.2\textwidth]{handphone.jpg}
+    \hspace{2mm}
+\includegraphics[width=.2\textwidth]{wearables.jpg}
+    \hspace{2mm}
+\includegraphics[width=.3\textwidth]{router.jpg}
+\end{center}
+
+\end{frame}
+
+\subsection{操作系统}
+
+\begin{frame}{操作系统}
+    操作系统是计算机的核心软件, 它控制和管理整个计算机系统硬件和软件资源，
+    以提供给用户和其它软件方便的接口和环境。
+
+\begin{center}
+\includegraphics[width=.2\textwidth]{windowslogo.jpg}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{桌面操作系统}
+
+    \ \\
+\begin{center}
+\includegraphics[width=.15\textwidth]{android.png}
+    \hspace{3mm}
+\includegraphics[width=.15\textwidth]{macos.pdf}
+    \hspace{3mm}
+\includegraphics[width=.15\textwidth]{chrome.pdf}
+    \hspace{3mm}
+\includegraphics[width=.15\textwidth]{apple.jpg}
+\end{center}
+
+\end{frame}
+
+\subsection{Linux}
+
+\begin{frame}{Linus 和 Linux}
+
+\begin{center}
+\includegraphics[width=.2\textwidth]{Linus.jpg}
+    \hspace{2cm}
+\includegraphics[width=.2\textwidth]{tux.pdf}
+\end{center}
+    1991 年，芬兰大学生Linus(李纳斯)在学习计算机课程期间，
+    出于兴趣开发了 Linux 操作系统。
+\end{frame}
+
+\begin{frame}{Linix 发行版}
+\begin{center}
+\includegraphics[width=.5\textwidth]{linux_distros.pdf}
+\end{center}
+\end{frame}
+
+\begin{frame}{Linux 用在哪里}
+\begin{itemize}
+    \item 服务器、超级计算机 (Top 500 全部采用Linux)
+    \item 手机、平板 (Linux 内核约占 70\% 的市场份额)
+    \item 机顶盒、网络路由器、可穿戴设备...
+    \item 个人电脑
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Linux 的特点}
+\begin{itemize}
+    \item 自由软件 (free software)，遵循开源版权协议
+    \item 标准化
+    \item 大量的软件支持
+    \item 安全、可靠
+    \item 网络性能优越
+\end{itemize}
+\end{frame}
+
+\section{Python}
+
+\subsection{编程语言}
+\begin{frame}{编程语言}
+    编程语言是一种计算机和人都能识别的符号体系。
+    一种计算机语言让程序员能够准确地定义计算机所需要使用的数据，
+    并精确地定义在不同情况下应当产生的动作。
+\end{frame}
+
+\begin{frame}{编程语言}
+    计算机语言从低级 (接近机器)到高级 (接近人类语言)可分为
+\begin{itemize}
+    \item 机器语言 (0、1编码)
+    \item 汇编语言 (简单的符号)
+    \item 高级语言 (完善的符号)
+    \item 自然语言 (发展中)
+\end{itemize}
+所有编程语言都需要转换到机器语言才能让计算机执行。
+编译型/解释型语言通过不同的方式转换。
+\end{frame}
+
+\subsection{Python}
+\begin{frame}{Python}
+\begin{itemize}
+    \item 高级、通用、解释型编程语言
+    \item 语法简洁, 用更少的代码表达设计思想，强调可读性
+    \item 大量的第三方库支持
+\end{itemize}
+    Python 语言有大量的支持库，应用于数值计算、图形处理、
+    数据库、互联网、人工智能等几乎所有的计算领域。
+\end{frame}
+
+\begin{frame}{Python之父}
+\begin{center}
+\includegraphics[width=.16\textwidth]{Guido.jpg}
+    \hspace{2cm}
+\includegraphics[width=.2\textwidth]{python.pdf}
+\end{center}
+
+    Guido van Rossum (罗素姆) 荷兰程序员, 1989年圣诞节期间开发了
+    Python 程序设计语言。
+\end{frame}
+
+\section{树莓派}
+\subsection{树莓派}
+
+\begin{frame}{树莓派的特点}
+    树莓派是由英国的一个非盈利组织开发的用于中小学计算机教育的
+    单板计算机。
+
+    \begin{center}
+        \includegraphics[width=.3\textwidth]{Pi1_A.jpg}
+    \end{center}
+\end{frame}
+
+\begin{frame}{树莓派的特点}
+\begin{itemize}
+    \item 性价比
+    \item 丰富的接口，可用于二次开发
+    \item 支持高级操作系统
+\end{itemize}
+大多数树莓派应用基于Linux操作系统，Linux操作系统支持 Python 编程语言，
+这使得基于树莓派的应用开发相当简单。
+\end{frame}
+
+\begin{frame}{在树莓派上编程}
+    程序的层次结构
+\begin{itemize}
+    \item 常量、变量
+    \item 表达式
+    \item 语句
+    \item 函数
+    \item 库 (模块)
+    \item 程序 (工程)
+\end{itemize}
+\end{frame}
+\end{document}
