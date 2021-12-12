@@ -1,13 +1,18 @@
 \documentclass[10pt,t]{beamer}
 %\usepackage[fontset=none]{ctex}
 \geometry{papersize={160mm,90mm}}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{ulem}
 \usepackage{boxedminipage}
 \input{style.tex}
+\hypersetup{backref,
+    pdftitle={A Short Introduction to LaTeX},%
+    pdfauthor={Fang Yuan},%
+    colorlinks=true}
 
-\lecture[1]{A short introduction to \LaTeX\\[5ex]
+\lecture[1]{A Short Introduction to \LaTeX\\[5ex]
   $\tau \epsilon \chi$ (technology $\to$ TeX)}{}
 
 \begin{document}
@@ -36,13 +41,13 @@
     Donald Knuth(Jan. 10, 1938--): Turing Award(1974),
     National Academy of Sciences(1975) and many other awards and honors.
 \end{frame}
-
+\hypersetup{pdfpagetransition=Blinds /Dm /V}
 \begin{frame}{What is \LaTeX}
 \begin{itemize}
     \item \TeX{} system is too primitive. Leslie Lamport developed a document
     preparation system based on \TeX{} (1984).
 
-\item \LaTeX{} is short for \alert{La}mport \alert{TeX{}}.
+\item \LaTeX{} is short for \alert{La}mport \alert{TeX}.
 \end{itemize}
 \begin{center}
     \includegraphics[height=.5\textheight]{Leslie-Lamport.jpg}
@@ -93,12 +98,13 @@ Imagine an author is publishing a book:
 \begin{itemize}
     \item Very hard to write unstructured and disorganized documents
         (seminar presentations for example).
-    \item Template designing takes a lot of time.
+    \item Designing a template takes a lot of time.
 \end{itemize}
 \end{frame}
 
 \section{Beginners}
 \begin{frame}{\TeX{} Source File}
+    \small
 \lstinputlisting[language={[LaTeX]TeX},
     morekeywords={maketitle},keywordstyle=\color{red}]{einstein.tex}
 \end{frame}
@@ -166,7 +172,7 @@ cross-references.
 
 \section{Document Structure}
 \begin{frame}{Text}
-    \TeX{} simple rules:
+    Except commands which are used to print text, \TeX{} has simple rules:
 \begin{itemize}
     \item Input letters, digits and most ASCII chars as text, except only
         a few special symbols, which must be escaped
@@ -179,6 +185,7 @@ cross-references.
     \alert{DO NOT} focus too much on {\em how the document looks like}.
     It is the publisher's job.
 
+    You should pay more attention on the logical structure of the document.
 \end{frame}
 
 \begin{frame}{Sentence and Paragraph}
@@ -219,21 +226,29 @@ tables, etc. are also numbered automatically.
     will list sections in content until level 2.
 \end{frame}
 
-\begin{frame}{Big Projects}
-    Big document can be split into several parts. \LaTeX{} uses
+\begin{frame}[fragile]{Big Projects}
+    Large document can be split into several parts. \LaTeX{} uses
     command \alert{\textbackslash include} or \alert{\textbackslash input}
-    to insert the contents of a file.\\[3ex]
+    to insert the contents of a file, which are very similar to
+    \alert{\#include} in C programming.\\[3ex]
 
-\textbackslash title\{Civilizations\}
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red},
+      morekeywords={maketitle,tableofcontents}]
 
-\textbackslash input Babylonian.tex \qquad \% Chapter 1
+...   % preamble
+\title{Civilizations}
+\author{Zhang3}
+\begin{document}
+\maketitle
+\tableofcontents
 
-\textbackslash input Egypt.tex \qquad\qquad \% Chapter 2
+\include Babylonian.tex    \% Chapter 1
+\include Egypt.tex         \% Chapter 2
+\include India.tex         \% Chapter 3
+\include China.tex         \% Chapter 4
+\end{document}
 
-\textbackslash input India.tex \qquad\qquad \% Chapter 3
-
-\textbackslash input China.tex \qquad\qquad \% Chapter 4
-
+\end{lstlisting}
 
 \end{frame}
 
@@ -260,8 +275,29 @@ Fibonacci function $fib(n)$:
     \item return $fib(n-1)+fib(n-2)$
     \item END \label{end}
 \end{enumerate}
-    \end{boxedminipage}
+\end{boxedminipage}
 \end{frame}
+
+\begin{frame}[fragile]{Program List}
+    Using {\em lstlisting} package, you can print elegant program list:
+
+\begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
+\lstinputlisting[language=Python, firstline=4, lastline=10,
+    firstnumber=4, numbers=left,
+    caption={fibonacci series},
+    label=list:fibonacci,keywordstyle=\color{red}]{fib.py}
+\end{lstlisting}
+
+    \begin{center}
+\begin{boxedminipage}{0.7\textwidth}
+\lstinputlisting[language=Python, firstline=4, lastline=10,
+    firstnumber=4, numbers=left,
+    caption={fibonacci series},
+    label=list:fibonacci,keywordstyle=\color{red}]{fib.py}
+\end{boxedminipage}
+    \end{center}
+\end{frame}
+
 
 \section{Math Notation}
 \begin{frame}{Math Mode}
@@ -287,6 +323,27 @@ Fibonacci function $fib(n)$:
 
 \end{itemize}
 \end{frame}
+
+\begin{frame}{More Maths}
+\begin{equation}
+    u(t)=\left\{\begin{array}{ll}
+        0, &t < 0\\
+        1, &t \ge 0\\
+    \end{array}\right.
+\end{equation}
+
+\begin{eqnarray}
+    s_k = -\Omega_c a \sin\left( \frac{2k+1}{2N}\pi\right) +
+        j\Omega_c b\cos\left( \frac{2k+1}{2N}\pi \right)
+\end{eqnarray}
+compare with:
+\begin{eqnarray}
+    s_k = -\Omega_c a sin( \frac{2k+1}{2N}\pi) +
+        j\Omega_c b cos(\frac{2k+1}{2N}\pi)
+\end{eqnarray}
+
+\end{frame}
+
 
 \begin{frame}{Newtheorem}
 
@@ -321,7 +378,7 @@ the sectional unit within which the {\em theorem} should get its numbers.
 \end{law}
 \end{lstlisting}
 
-will reads:
+looks like:
 
 \begin{law}
   An object doesn't change its velocity unless acted upon by a force.
@@ -337,7 +394,7 @@ will reads:
     Figures and tables are called \alert{floating object}, because
     they occupy large space, i.e. they may not appear in the current
     context. Therefore, you should avoid using ``\sout{See figure below}''
-    or ``\sout{Refer the table above}'' in your documents.
+    or ``\sout{Refer to the table above}'' in your documents.
 
 \begin{lstlisting}[language={[LaTeX]TeX},keywordstyle=\color{red}]
 \begin{figure}
@@ -473,7 +530,7 @@ Some typical ways of organizing the sources into a review:
 \fi
 \begin{frame}
 \begin{center}
-\includegraphics[width=.5\textwidth]{shakinghands.png}
+\includegraphics[width=.3\textwidth]{shakinghands.png}
 
 \texttt{\Huge Thanks!}
 \end{center}

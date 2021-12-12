@@ -1,0 +1,537 @@
+% $Header: /Users/joseph/Documents/LaTeX/beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 90e850259b8b 2007/01/28 20:48:30 tantau $
+
+\documentclass[14pt,t]{beamer}
+\usepackage[fontset=ubuntu]{ctex}
+\usepackage[english]{babel}
+\geometry{papersize={160mm,90mm}}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+
+
+\mode<presentation>
+{%
+  \usetheme{Warsaw}%
+  \setbeamercovered{transparent}%
+}
+
+\title[电子实践导学] % (optional, use only with long paper titles)
+{电子实践导学}
+
+\subtitle{如何做实验/撰写实验报告}
+
+% (optional, use only with lots of authors)
+\author[Fang Yuan (yfang@nju.edu.cn)]
+{方元 (yfang@nju.edu.cn)}
+
+\institute[南京大学电子学院] % (optional, but mostly needed)
+{南京大学电子学院}
+
+\date[expcourse] % (optional, should be abbreviation of conference name)
+{\today}
+
+\subject{Theoretical Computer Science}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\pgfdeclareimage[height=7mm]{university-logo}{njulogo.pdf}
+\logo{\pgfuseimage{university-logo}}
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+%\AtBeginSubsection[]%
+%{%
+%  \begin{frame}<beamer>{Agenda}
+%    \tableofcontents[currentsection,currentsubsection]
+%  \end{frame}
+%}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Agenda}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+
+\section{Why Do We Need Experiments}
+
+\subsection{Science is a way we understand the world}
+
+\begin{frame}{Scientific Methods}{}
+    How we understand our world?
+\begin{itemize}
+    \item Depending on our experience and intuition.
+    \item Depending on reasoning and empirical knowledge.
+\end{itemize}
+
+    Science is a way of learning about \alert{what} is in the natural world,
+    \alert{why} it works, and \alert{how} it got to be the way it is.
+    \ \\ \ \\
+
+    It is not simply a collection of facts, rather it is a path to
+    understanding. 
+
+\end{frame}
+
+\begin{frame}{Limitations of Science}
+Science has limits:
+\begin{itemize}
+    \item Science doesn't make moral judgments.
+    \item Science doesn't make aesthetic judgments.
+    \item Science doesn't tell you how to use scientific knowledge.
+    \item Science doesn't draw conclusions about supernatural explanations.
+\end{itemize}
+    Besides, science may go wrong. But still science is a world-wide
+    accepted method that we rely on.
+\end{frame}
+
+\iffalse
+\begin{frame}{Scientific Literacy Training}
+\centering
+\includegraphics[width=.9\textwidth]{fig2}
+
+Sampling Survey on the Scientific Literacy in China
+\end{frame}
+
+\begin{frame}{QUIZ-1}
+    \small
+\begin{itemize}
+    \item 我们呼吸的氧气来源于植物. (T/F)
+    \item 激光是通过汇聚声波产生的. (T/F)
+    \item 所有的放射性现象都是人为的. (T/F)
+    \item 人类是由早期的动物演化而来的. (T/F)
+    \item 第一手资料不应借助于
+        
+        A. 实地调查. B.查找原始资料. C.听取专家评论.
+\end{itemize}
+\end{frame}
+\fi
+
+\subsection{Experiments' Position in Research}
+
+\begin{frame}{Procedure of a Scientific Research}
+\begin{center}
+    \includegraphics[width=.75\textwidth]{process.pdf}
+\end{center}
+
+    experiment(实验) vs. test(试验).  ex-per-iment. 
+
+    experiments $\to$ experience $\to$ expert.
+\end{frame}
+
+\begin{frame}{Types of Experiment}
+\begin{itemize}
+    \item Confirmatory Experiments (验证型实验)
+
+        To test some relatively simple hypothesis stated a priori.
+        This includes designing experiment(设计实验) or so-called
+        comprehensive/synthesized/combined experiment (综合实验).
+
+        Most college experiments (esp. in first 2 years) are confirmatory.
+    \item<2-> Exploratory Experiments (探索型/研究型实验)
+
+        To generate data with which to develop hypotheses for future
+        testing. They may ``\alert{work}'' or ``\alert{not work}''.
+\end{itemize}
+\end{frame}
+
+\subsection{Why Do We Need Experiments}
+\begin{frame}{Why Do We Need Experiments}
+        \only<2>{
+\begin{itemize}
+    \item For credit.
+    \item To understand the theory better.
+    \item To find errors in the theory.
+    \item To learn more knowledges.
+    \item To get operation skills.
+    \item To get innovating ideas.
+    \item To improve scientific literacy.
+\end{itemize}
+    }
+\end{frame}
+
+\iffalse
+\begin{frame}{QUIZ-2}
+    When choose Other, please specify.
+\small
+\begin{itemize}
+    \item 你需要研究在海拔4000米的青藏高原上水的沸点, 这个实验属于:
+        
+        A.验证型实验.  B.研究型实验.
+    \item 当某项条件影响结果时, 应尽量发挥它的作用, 以便结果更符合预期.
+        (T/F/O)
+    \item 在一个研究型实验中, 如果实验结果与预期不符, 则实验结果不宜公开.
+        (T/F/O)
+    \item 你如何理解``实验结果''和``结论''之间的关系?
+
+        A. 客观/主观. B. 定量/定性. C. Both. D. Neither.
+\end{itemize}
+\end{frame}
+\fi
+
+\section{How to Perform an Experiment}
+
+\subsection{Before Experiment}
+\begin{frame}{Preparation}
+    An experiment can't be random/aimless.
+\begin{itemize}
+    \item You need to know the aim of the experiment.
+        (What do you expect from the experiment.)
+
+        Confirmatory experiments are based on complete theory.
+    \item You need to know the objects.
+        (What materials/devices you use, the performance/specifications/... )
+    \item You have rough expectations to the results.
+\end{itemize}
+
+\end{frame}
+
+\subsection{The Procedure}
+\begin{frame}{During Experiment}
+\begin{itemize}
+    \item Operations.
+    \item Data gathering (reliable, objective, always keep raw data).
+    \item Keep curiosity, questioning.
+    \item Device failures belong to experiment.
+\end{itemize}
+    You need to know exactly what you did and for what purpose you did.
+\end{frame}
+
+\begin{frame}{Observations}
+Observation beyond our eyes.
+
+How much we rely on our observation.
+    \begin{center}
+\begin{minipage}[c][4cm][c]{.4\textwidth}
+    \includegraphics[width=.8\textwidth]{meter.jpg}
+
+    \includegraphics[width=.8\textwidth]{generator.jpg}
+\end{minipage}
+\begin{minipage}[c][4cm][c]{.4\textwidth}
+    \includegraphics[width=.9\textwidth]{oscilator.png}
+\end{minipage}
+    \end{center}
+
+``Do we see through a microscope?'' (Ian Hacking, 1981)
+\end{frame}
+
+\section{Lab Report(Scientific Report)}
+
+\subsection{Layout/Structure}
+\begin{frame}{Scientific Report}
+\begin{itemize}
+    \item To communicate with others.
+    \item The experiment must be repeatable.
+    \item To show your understanding and your thinking(lab report).
+\end{itemize}
+
+The format of a report should be:
+\begin{itemize}
+    \item neat
+    \item formatted
+    \item easy to understand
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Layout of a Scientific Report}
+\centering
+\includegraphics[width=.9\textwidth]{fig1.png}
+\end{frame}
+
+\begin{frame}{Format of a Lab Report}
+\begin{itemize}
+    \item Title page (optional).
+    \item Table of contents (optional).
+    \item Divide report into logical sections.
+    \item Draw conclusions from results.
+\end{itemize}
+    You finished a experiment in 2 hours. You have another 2 hours
+    to write a paper, not a book.
+\end{frame}
+
+\begin{frame}{Important Factors}
+To write a high quality research paper:
+\begin{itemize}
+    \item Coherence
+    \begin{itemize}
+        \item Include all necessary information in each section.
+        \item Do not repeat information unless necessary.
+    \end{itemize}
+    \item Orgainization
+    \begin{itemize}
+        \item IMRD (journal-specific) structure.
+        \item Put the right parts in the right place.
+    \end{itemize}
+    \item Relevance
+    \begin{itemize}
+        \item Confirm to length guidelines, keep paper focused.
+        \item Choose a limited amount of data to present in each section.
+    \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\subsection{Sections in a Scientific Report}
+%\begin{frame}[allowframebreaks]
+%\frametitle<presentation>{Sections in a Scientific Report}
+\def\sout#1{\vbox{\vskip 1ex
+    {\color{red} \hrule height 0pt depth 1pt} \vskip -1ex \hbox{#1}}}
+\begin{frame}{Sections in a Scientific Report}
+
+
+\begin{itemize}
+    \only<1>{\item Title
+\begin{itemize}
+    \item Highlight purpose, methods, scope
+    \item Highly summarized
+\end{itemize}
+        Usually, the title of a lab report is often given.
+        }
+
+    \only<2>{\item Abstract
+
+        The abstract paragraph includes \alert{purpose}, \alert{methods},
+        \alert{key findings}, major \alert{conclusions}.
+
+        You don't need to \sout{discuss} and \sout{interpret} something.
+
+        The audience wants to know if this report worth of further reading.
+        \ \\ \ \\
+
+        Several keywords (3--5) are required in scientific report as
+        search indexes. The keywords need to be specific.
+        }
+
+    \only<3>{\item Introduction
+\begin{itemize}
+    \item State the purpose of the experiment, the background and theory.
+    \item Literature review required.(better recently, direct references)
+    \item Instead of \sout{coping}, you may \alert{cite} other conclusions
+        and results, and \alert{refer} to literatures.
+\end{itemize}
+        Introduction section may include the importance of the experiment
+        and description of specialized equipment.
+        }
+
+    \only<4>{\item Methods/Procedure
+    \begin{itemize}
+        \item How materials were prepared.
+        \item How measurements were made.
+        \item Under what conditions the experiment was performed.
+            What hypotheses you made.
+        \item Analysis methods.
+    \end{itemize}
+        The procedure should be in chronological order.
+        Write in detail as possible as you can, so that others can
+        \alert{replicate your study} exactly by what you write in
+        this section.
+        (Assume the reader has no knowledge of what you did.)
+        }
+    \only<5>{\item Results
+
+        The results need to be clear and logical.
+
+\begin{itemize}
+    \item Use \alert{tables}, \alert{charts}, \alert{figures}
+        and \alert{diagrams}.
+    \item Explain the results. (What do the results mean?
+        can we trust them?...)
+    \item Tables and figures need to be in standard format.
+        (coordinates, units, ...)
+\end{itemize}
+        Keep your original records.\\
+        \alert{NO NOT DROP ANY NEGATIVE RESULTS INTENTIONALLY.}
+        }
+    \only<6>{\item Discussion/Analysis
+
+    State your aim/question/research.
+    \begin{itemize}
+        \item Whether the results is as expected?
+        \item Analyze experimental error. (How accurate are the results,
+            which factors impact the results.)
+        \item Discuss both positive and negative findings.
+        \item Limitations, ambiguities.
+        \item Further research (how to improve/revise results,...).
+        \item Critics, complains.
+    \end{itemize}
+
+        Present your \alert{opinion} based on \alert{facts}
+        (experiment results). May also formulate new hypotheses.
+
+        }
+    \only<7>{\item Conclusion
+
+\begin{itemize}
+    \item Restate the question you were studying. (to remind the audience)
+    \item summarize the findings.
+        (answer the question "Was the problem solved?")
+    \item Suggest further research.
+\end{itemize}
+    Conclusion is qualitative, while results are more quantitative.
+    }
+
+    \only<8>{\item References/Appendices
+        
+        List only references that were referred to.
+
+        journals, monographs, theses, textbooks, media,...
+
+        Raw data, calculations, graphs pictures or tables that have not
+        been included in the report should be listed here.
+    }
+\end{itemize}
+\end{frame}
+
+\iffalse
+\begin{frame}{QUIZ-3}
+\small
+\begin{itemize}
+    \item 如果研究报告采用``IMRD''结构, 则下面哪些内容不宜写在``结果''中:
+        A. 不符合预期的结果. B. 他人的结果.
+        C. 对改善结果的建议.
+    \item 在``实验方法(Methods)''节, 允许隐藏导致实验结果的关键信息,
+        以保护商业机密. (T/F/O)
+    \item 对于不符合预期的测量结果 (确认不是测量错误), 较好的做法是:
+        
+        A. 剔除它, 以便提高结果的质量. B. 当作普通数据对待.
+        C. 基于此结果对理论提出修正. D. 其他(请给出你的意见).
+    \item 请列出两个你做过的、印象深刻的实验, 它们基于的原理、
+        实验目的和结果 (请使用表格形式).
+\end{itemize}
+\end{frame}
+\fi
+
+\begin{frame}
+\frametitle<presentation>{Summary}
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item Why do we need experiments.
+  \item How to perform a experiment.
+  \item How to write a lab report.
+  \end{itemize}
+\end{frame}
+
+\appendix
+
+% All of the following is optional and typically not needed. 
+\section<presentation>*{\appendixname}
+\subsection<presentation>*{For Further Reading}
+
+\begin{frame}[allowframebreaks]
+\frametitle<presentation>{For Further Reading}
+
+\begin{thebibliography}{10}
+
+\beamertemplateonlinebibitems
+% Followed by interesting articles. Keep the list short. 
+
+\iffalse
+\bibitem{undsci}
+    Max G. Bronstein, Roy Caldwell, et al.
+    \newblock {\em Understanding Science}
+    \newblock \url{https://undsci.berkeley.edu/index.php}
+
+\bibitem{Franklin}
+    Allan Franklin <allan.franklin@colorado.edu>
+    Slobodan Perovic <sperovic@f.bg.ac.rs>,
+    \newblock {\em Experiment in Physics},
+    \newblock \url{https://plato.stanford.edu/entries/physics-experiment/}
+\beamertemplatearticlebibitems
+\bibitem{HeWei}
+    何薇, 张超, 高宏斌,
+    \newblock {\em 中国公民的科学素质及对科学技术的态度},
+    \newblock 科普研究, 2008年12月, 第3卷
+
+\beamertemplatearticlebibitems
+\bibitem{Loyalka}
+    Prashant Loyalka, Ou Lydia Liu, et al.
+    \newblock {\em Skill levels and gains in university STEM education
+        in China, India, Russia and the United States},
+    \newblock \url{https://www.nature.com/articles/s41562-021-01062-3}
+    (in abstract). \\
+    中文报道: 美中俄印共同研究发现：中国大学生批判性思维能力下降, \url{https://www.163.com/dy/article/G43PSRPV0514DTKM.html}
+
+\beamertemplatebookbibitems
+\bibitem{Catherine}
+    Catherine E. Snow , Kenne A. Dibner
+    \newblock {\em SCIENCE LITERACY -- Concepts, Contexts, and Consequences},
+    \newblock \url{https://www.ncbi.nlm.nih.gov/books/NBK396088/},
+    A report of The National Academies of Science.Engineering.Medicine, 2016
+\fi
+
+\beamertemplateonlinebibitems
+\bibitem{Martin}
+    Greg Martin, \newblock{\em How to Write a Scientific Report},
+    \newblock \url{https://youtube.com/watch?v=Vky9PDKx5KU}
+\beamertemplateonlinebibitems
+\bibitem{Apologia}
+    Sherri Seligson,
+    \newblock{\em How To Write A Lab Report},
+    \newblock \url{https://homeschool-101.com/wp-content/uploads/2017/04/How-to-Write-a-Lab-Report-1.pdf},\\
+    also find the video in \url{https://www.youtube.com/watch?v=FR28zf2Aiwo}
+
+\bibitem{labwrite}
+    Eric N. Wiebe, Catherine E. Brawner, et al.
+    \newblock{\em The LabWrite Project: Experiences reforming lab
+        report writing practice in undergraduate lab courses},
+    \newblock Proceedings of the 2005 American Society for Engineering
+        Education Annual Conference \& Exposition,
+        \url{https://labwrite.ncsu.edu/}
+
+\end{thebibliography}
+\end{frame}
+
+\iffalse
+\begin{frame}{Pendulum}
+    单摆实验中, 测量周期的时间点选取, 理论基础是下面的公式
+
+    $$  \theta (t) = A\sin (\omega t) $$
+
+   $$ \Delta \theta = A\omega \cos(\omega t) \Delta t$$ 
+\end{frame}
+
+\begin{frame}{Pendulum}
+利用单摆测量重力加速度, 误差的定量分析
+
+  $$  g = 4\pi^2 \frac{l}{T^2} $$
+
+\begin{eqnarray}
+    \Delta g&=&4\pi^2 \frac{\Delta l}{T^2}-8\pi^2 \frac{l \Delta T}{T^3}\\
+     &=& g \frac{\Delta l}{l} - 2g \frac{\Delta T}{T} \\
+     &\le& g \left|\frac{\Delta l}{l}\right|
+        + 2g \left|\frac{\Delta T}{T} \right|
+\end{eqnarray}
+\end{frame}
+\fi
+
+\end{document}
